@@ -1,0 +1,8 @@
+
+PSET Switch_my_pset
+DEVICE Switch
+	PARAMETERS
+	ron  = 8
+	roff = 1e12
+END PSET
+	

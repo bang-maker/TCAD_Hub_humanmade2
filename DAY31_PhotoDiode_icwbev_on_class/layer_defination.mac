@@ -1,0 +1,9 @@
+layer configure 1:0 -name NWELL -fill #9900ff00 -pattern solid -outline #9900ff00 -lineStyle solid -lineWidth 1 -order 0 -show 1
+layer configure 2:0 -name ACTIVE -fill #990000ff -pattern solid -outline #990000ff -lineStyle solid -lineWidth 1 -order 1 -show 1
+layer configure 4:0 -name NPLUS -fill #99ff00ff -pattern solid -outline #99ff00ff -lineStyle solid -lineWidth 1 -order 2 -show 1
+layer configure 5:0 -name PPLUS -fill #9900ffff -pattern solid -outline #9900ffff -lineStyle solid -lineWidth 1 -order 3 -show 1
+layer configure 6:0 -name CONTACT -fill #99ff6699 -pattern solid -outline #99ff6699 -lineStyle solid -lineWidth 1 -order 4 -show 1
+layer configure 7:0 -name METAL1 -fill #99339966 -pattern solid -outline #99339966 -lineStyle solid -lineWidth 1 -order 5 -show 1
+layer configure 8:0 -name BASE -fill #99000099 -pattern solid -outline #99000099 -lineStyle solid -lineWidth 1 -order 6 -show 1
+layer configure 9:0 -name EMITTER -fill #99cccc00 -pattern solid -outline #99cccc00 -lineStyle solid -lineWidth 1 -order 7 -show 1
+layer active 1:0

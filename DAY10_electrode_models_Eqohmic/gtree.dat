@@ -1,0 +1,19 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Sun Oct 24 07:10:14 2021
+
+# --- simulation flow
+electrode sde "" {}
+IV sdevice "" {}
+IV BC "Ohmic" {Ohmic EqOhmic}
+DrawIV svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default BC ""
+scenario RecVelocity BC ""
+# --- simulation tree
+0 1 0 {} {RecVelocity default} 0
+1 3 1 {} {RecVelocity default} 0
+2 5 3 {Ohmic} {RecVelocity default} 0
+3 69 5 {} {RecVelocity default} 0
+2 6 3 {EqOhmic} {default} 0
+3 16 6 {} {default} 0

@@ -1,0 +1,63 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Tue Jun  7 10:20:43 2022
+
+# --- simulation flow
+PN sprocess "--xml" {}
+PN implant "1" {1}
+PN anneal "1" {1}
+PN PLUS "1" {1}
+PN anneal2 "1" {1}
+PN PtImp "no" {no yes}
+PN PtDose "1e13" {1e13 - 5e13 1e14}
+PN metal "1" {1}
+PN remesh "1" {1}
+IV sdevice "" {}
+DrawIV svisual "" {}
+Recovery sdevice "" {}
+DrawIt svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default implant ""
+scenario default anneal ""
+scenario default PLUS ""
+scenario default anneal2 ""
+scenario default PtImp ""
+scenario default PtDose ""
+scenario default metal ""
+scenario default remesh ""
+# --- simulation tree
+0 3 0 {} {default} 0
+1 2 3 {1} {default} 0
+2 4 2 {1} {default} 0
+3 5 4 {1} {default} 0
+4 13 5 {1} {default} 0
+5 22 13 {no} {default} 0
+6 6 22 {-} {default} 0
+7 7 6 {1} {default} 0
+8 1 7 {1} {default} 0
+9 8 1 {} {default} 0
+10 9 8 {} {default} 0
+11 10 9 {} {default} 0
+12 11 10 {} {default} 0
+5 23 13 {yes} {default} 0
+6 14 23 {1e13} {default} 0
+7 15 14 {1} {default} 0
+8 16 15 {1} {default} 0
+9 17 16 {} {default} 0
+10 18 17 {} {default} 0
+11 20 18 {} {default} 0
+12 21 20 {} {default} 0
+6 31 23 {5e13} {default} 0
+7 32 31 {1} {default} 0
+8 33 32 {1} {default} 0
+9 34 33 {} {default} 0
+10 35 34 {} {default} 0
+11 36 35 {} {default} 0
+12 37 36 {} {default} 0
+6 45 23 {1e14} {default} 0
+7 46 45 {1} {default} 0
+8 47 46 {1} {default} 0
+9 48 47 {} {default} 0
+10 49 48 {} {default} 0
+11 50 49 {} {default} 0
+12 51 50 {} {default} 0

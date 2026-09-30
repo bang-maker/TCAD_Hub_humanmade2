@@ -1,0 +1,56 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Tue Jun  7 09:13:31 2022
+
+# --- simulation flow
+Implant sprocess "--xml" {}
+Implant energy "2" {2 50 100}
+Implant case "1" {0 1 2}
+Implant anneal "1" {1}
+DrawBeforeAnneal svisual "" {}
+DrawAfterAnneal svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default energy ""
+scenario default case ""
+scenario default anneal ""
+# --- simulation tree
+0 166 0 {} {default} 0
+1 152 166 {2} {default} 0
+2 162 152 {0} {default} 0
+3 163 162 {1} {default} 0
+4 164 163 {} {default} 0
+5 165 164 {} {default} 0
+2 157 152 {1} {default} 0
+3 109 157 {1} {default} 0
+4 45 109 {} {default} 0
+5 160 45 {} {default} 0
+2 158 152 {2} {default} 0
+3 153 158 {1} {default} 0
+4 154 153 {} {default} 0
+5 161 154 {} {default} 0
+1 167 166 {50} {default} 0
+2 168 167 {0} {default} 0
+3 169 168 {1} {default} 0
+4 170 169 {} {default} 0
+5 171 170 {} {default} 0
+2 172 167 {1} {default} 0
+3 173 172 {1} {default} 0
+4 174 173 {} {default} 0
+5 175 174 {} {default} 0
+2 176 167 {2} {default} 0
+3 177 176 {1} {default} 0
+4 178 177 {} {default} 0
+5 179 178 {} {default} 0
+1 180 166 {100} {default} 0
+2 181 180 {0} {default} 0
+3 182 181 {1} {default} 0
+4 183 182 {} {default} 0
+5 184 183 {} {default} 0
+2 185 180 {1} {default} 0
+3 186 185 {1} {default} 0
+4 187 186 {} {default} 0
+5 188 187 {} {default} 0
+2 189 180 {2} {default} 0
+3 190 189 {1} {default} 0
+4 191 190 {} {default} 0
+5 192 191 {} {default} 0

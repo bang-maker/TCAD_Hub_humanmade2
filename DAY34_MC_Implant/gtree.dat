@@ -1,0 +1,27 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Tue Jun  7 09:09:49 2022
+
+# --- simulation flow
+Implant sprocess "--xml" {}
+Implant case "1" {0 1 2}
+Implant anneal "1" {1}
+DrawBeforeAnneal svisual "" {}
+DrawAfterAnneal svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default case ""
+scenario default anneal ""
+# --- simulation tree
+0 152 0 {} {default} 0
+1 162 152 {0} {default} 0
+2 163 162 {1} {default} 0
+3 164 163 {} {default} 0
+4 165 164 {} {default} 0
+1 157 152 {1} {default} 0
+2 109 157 {1} {default} 0
+3 45 109 {} {default} 0
+4 160 45 {} {default} 0
+1 158 152 {2} {default} 0
+2 153 158 {1} {default} 0
+3 154 153 {} {default} 0
+4 161 154 {} {default} 0

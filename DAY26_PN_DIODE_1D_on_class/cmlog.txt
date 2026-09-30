@@ -1,0 +1,5 @@
+DATE: 01/16/22 - 01/16/22 cmlog.txt
+
+This localhost (server) information:
+	Name:    workstation
+	Address: 127.0.0.1

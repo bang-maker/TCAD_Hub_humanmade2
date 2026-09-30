@@ -1,0 +1,19 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Sun Sep 19 09:23:09 2021
+
+# --- simulation flow
+EmitterImp sprocess "" {}
+EmitterImp imp_energy "30" {30 50}
+BaseImp sprocess "" {}
+IGBT sde "-defaultGUI" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default imp_energy ""
+# --- simulation tree
+0 5 0 {} {default} 0
+1 1 5 {30} {default} 0
+2 3 1 {} {default} 0
+3 4 3 {} {default} 0
+1 6 5 {50} {default} 0
+2 7 6 {} {default} 0
+3 8 7 {} {default} 0

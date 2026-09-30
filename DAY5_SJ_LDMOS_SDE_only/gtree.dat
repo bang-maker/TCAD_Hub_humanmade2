@@ -1,0 +1,19 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Sat Sep 25 08:51:11 2021
+
+# --- simulation flow
+sde sde "" {}
+sde type "POI" {POI Conv}
+sde SJ "yes" {yes no}
+# --- variables
+# --- scenarios and parameter specs
+scenario default type ""
+scenario default SJ ""
+# --- simulation tree
+0 2 0 {} {default} 0
+1 3 2 {POI} {default} 0
+2 108 3 {yes} {default} 0
+2 109 3 {no} {default} 0
+1 5 2 {Conv} {default} 0
+2 110 5 {yes} {default} 0
+2 111 5 {no} {default} 0

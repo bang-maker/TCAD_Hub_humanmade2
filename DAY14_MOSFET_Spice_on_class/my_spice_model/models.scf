@@ -1,0 +1,18 @@
+PSET my_nmos_pset
+	DEVICE BSIM3
+	PARAMETERS
+		tox=5.0e-9
+		vth0=0.30
+		nmos=1
+END PSET
+
+
+PSET my_pmos_pset
+	DEVICE BSIM3
+	PARAMETERS
+		tox=5.1e-9
+		vth0= -0.28
+		pmos=1
+END PSET
+
+ 

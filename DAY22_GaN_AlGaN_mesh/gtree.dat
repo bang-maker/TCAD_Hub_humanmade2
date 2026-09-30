@@ -1,0 +1,41 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Sun Dec 12 08:04:17 2021
+
+# --- simulation flow
+GaN_AlGaN sde "" {}
+GaN_AlGaN t_barrier "0.05" {0.05}
+GaN_AlGaN x_barrier "0.25" {0.75}
+GaN_AlGaN t_mesh "0.1e-3" {0.1e-3 0.5e-3 1e-3 2e-3 4e-3}
+sdevice sdevice "" {}
+sdevice pz "0" {1}
+svisual svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default t_barrier ""
+scenario default x_barrier ""
+scenario default t_mesh ""
+scenario default pz ""
+# --- simulation tree
+0 9 0 {} {default} 0
+1 18 9 {0.05} {default} 0
+2 51 18 {0.75} {default} 0
+3 36 51 {0.1e-3} {default} 0
+4 37 36 {} {default} 0
+5 41 37 {1} {default} 0
+6 42 41 {} {default} 0
+3 52 51 {0.5e-3} {default} 0
+4 53 52 {} {default} 0
+5 54 53 {1} {default} 0
+6 55 54 {} {default} 0
+3 56 51 {1e-3} {default} 0
+4 57 56 {} {default} 0
+5 58 57 {1} {default} 0
+6 59 58 {} {default} 0
+3 60 51 {2e-3} {default} 0
+4 61 60 {} {default} 0
+5 62 61 {1} {default} 0
+6 63 62 {} {default} 0
+3 64 51 {4e-3} {default} 0
+4 65 64 {} {default} 0
+5 66 65 {1} {default} 0
+6 67 66 {} {default} 0

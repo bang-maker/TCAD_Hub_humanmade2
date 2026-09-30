@@ -1,0 +1,208 @@
+LatticeParameters {
+  X = (1, 0, 0)
+  Y = (0, 0,-1)
+}
+
+Piezoelectric_polarization {
+  relax	= 0.2	# [1]
+  a0	= @<3.112*0.05 + 3.189*(1-0.05)>@	# [Angstrem]
+}
+
+**************************** Dielectric Constant: *****************************
+*******************************************************************************
+Epsilon
+{ *  Ratio of the permittivities of material and vacuum
+
+  * epsilon() = epsilon
+	epsilon	= 8.8	# [1]
+}
+
+Epsilon_aniso
+{ *  Ratio of the permittivities of material and vacuum
+
+  * epsilon() = epsilon
+	epsilon	= 9.6	# [1]
+}
+
+*************************** Lattice Heat Capacity: ****************************
+*******************************************************************************
+
+LatticeHeatCapacity
+{ *  lumped electron-hole-lattice heat capacity
+  * cv() = cv + cv_b * T + cv_c * T^2 + cv_d * T^3 
+	cv	= 1.94					# [J/(K cm^3)]
+	cv_b	= 0.0000e+00				# [J/(K^2 cm^3)]
+	cv_c	= 0.0000e+00				# [J/(K^3 cm^3)]
+	cv_d	= 0.0000e+00				# [J/(K^4 cm^3)]
+}
+
+**************************** Thermal Conductivity: ****************************
+*******************************************************************************
+Kappa
+{ *  Lattice thermal conductivity
+
+  Formula = 1
+  * Formula = 1:
+  * kappa() = kappa + kappa_b * T + kappa_c * T^2 
+	kappa	= 2.85					# [W/(K cm)]
+	kappa_b	= 0.0000e+00				# [W/(K^2 cm)]
+	kappa_c	= 0.0000e+00				# [W/(K^3 cm)]
+}
+
+
+**************************** Bandgap  *****************************************
+*******************************************************************************
+Bandgap
+{ * Eg = Eg0 + alpha Tpar2 / (beta + Tpar) - alpha T2 / (beta + T)
+  * Parameter 'Tpar' specifies the value of lattice 
+  * temperature, at which parameters below are defined
+  * Chi0 is electron affinity.
+	Chi0	= 1.999					# [eV]
+	Eg0	= 6.23					# [eV]
+	alpha	= 1.7900e-03				# [eV K^-1]
+	beta	= 1.4620e+03				# [K]
+	Tpar	= 0				# [K]
+}
+
+
+
+eDOSMass
+{
+  * For effective mass specificatition Formula1 (me approximation):
+  * or Formula2 (Nc300) can be used :
+	Formula	= 2					# [1]
+  * Formula2:
+  * me/m0 = (Nc300/2.540e19)2/3  = 0.3
+  * Nc(T) = Nc300 * (T/300)3/2 
+	a	= 0.1905				# [1]
+	ml	= 0.9163				# [1]
+	mm	= 0.0000e+00				# [1]
+	Nc300	= 4.10e18				# [cm-3]
+}
+
+hDOSMass
+{
+  * For effective mass specificatition Formula1 (mh approximation):
+  * or Formula2 (Nv300) can be used :
+	Formula	= 2	# [1]
+  * Formula2:
+  * mh/m0 = (Nv300/2.540e19)2/3  ~= 5.0 
+  * Nv(T) = Nv300 * (T/300)3/2   
+	a	= 0.443587				# [1]
+	b	= 3.6095e-03				# [K^-1]
+	c	= 1.1735e-04				# [K^-2]
+	d	= 1.2632e-06				# [K^-3]
+	e	= 3.0256e-09				# [K^-4]
+	f	= 4.6834e-03				# [K^-1]
+	g	= 2.2869e-04				# [K^-2]
+	h	= 7.4693e-07				# [K^-3]
+	i	= 1.7275e-09				# [K^-4]
+	mm	= 0.0000e+00				# [1]
+	Nv300	= 2.8400e+20				# [cm-3] 
+}
+
+
+*****************************  Mobility Models: *******************************
+* mu_lowfield^(-1) = mu_dop(mu_max)^(-1) + mu_Enorm^(-1) + mu_cc^(-1)         *
+* Variable = electron value ,   hole value      # [units]                     *
+*******************************************************************************
+ConstantMobility:
+{ * mu_const = mumax (T/T0)^(-Exponent)
+	Exponent	= 1,	2.1			#[1]
+	mumax	= 300,	14				#[cm2/(Vs)] 
+}
+
+DopingDependence:
+{
+  * For doping dependent mobility model three formulas
+  * can be used. Formula1 is based on Masetti et al. approximation.
+  * Formula2 uses approximation, suggested by Arora.
+	formula	= 1 ,	1	# [1]
+  * If formula=1, model suggested by Masetti et al. is used:
+  * mu_dop = mumin1 exp(-Pc/N) + (mu_const - mumin2)/(1+(N/Cr)^alpha)
+  *                             - mu1/(1+(Cs/N)^beta)
+  * with mu_const from ConstantMobility
+	mumin1	= 20,		11			# [cm2/Vs]
+	mumin2	= 65,		0.00E+00		# [cm2/Vs]
+	mu1	= 20,		10			# [cm2/Vs]
+	Pc	= 8.00E+17,	5.00E+18		# [cm3]
+	Cr	= 7.00E+16,	8.00E+17		# [cm3]
+	Cs	= 5.20E+17,	8.00E+18		# [cm3]
+	alpha	= 0.88,		1.05	       		# [1]
+	beta	= 0.75,		0.75			# [1]
+}
+
+
+HighFieldDependence: 
+{ * Caughey-Thomas model:
+  * mu_highfield = mu_lowfield / ( 1 + (mu_lowfield E / vsat)^beta )1/beta
+  * beta = beta0 (T/T0)^betaexp.
+	beta0	= 2,	2				#[1]
+	betaexp	= 0.0000e+00,	0.0000e+00		#[1]
+
+  * Smoothing parameter for HydroHighField Caughey-Thomas model:
+  * if Tl < Tc < (1+K_dT)*Tl, then smoothing between low field mobility
+  * and HydroHighField mobility is used.
+	K_dT	= 0.2 ,	0.2				# [1]
+  * Transferred-Electron Effect:
+  * mu_highfield = (mu_lowfield+(vsat/E)*(E/E0_TrEf)4)/(1+(E/E0_TrEf)4)
+	E0_TrEf	= 2.7000e+05 ,	2.7000e+05		# [1]
+	Ksmooth_TrEf	= 1 ,	1			# [1]
+
+ * For vsat either Formula1 or Formula2 can be used.
+	Vsat_Formula	= 2 ,	2			# [1]
+ * Formula2 for saturation velocity:
+ *            vsat = A_vsat - B_vsat*(T/T0)
+ * (Parameter Vsat_Formula has to be equal to 2):
+	A_vsat	= 1.3000e+07,	1.3000e+07		#[cm/s]
+	B_vsat	= 0,	0	#[cm/s]
+	vsat_min	= 5.0000e+06,	5.0000e+06	#[cm/s]
+}
+
+******************  Recombination/Generation Models: **************************
+* Variable = electron value ,   hole value      # [units]                     *
+*******************************************************************************
+Scharfetter * relation and trap level for SRH recombination:
+{ * tau = taumin + ( taumax - taumin ) / ( 1 + ( N/Nref )^gamma
+  * tau(T) = tau * ( (T/300)^Talpha )          (TempDep)
+  * tau(T) = tau * exp( Tcoeff * ((T/300)-1) ) (ExpTempDep)
+	taumin	= 0.0000e+00 ,	0.0000e+00		# [s]
+	taumax	= 1.0000e-9 ,	1.0000e-9		# [s]
+	Nref	= 1.0000e+16 ,	1.0000e+16		# [cm^(-3)]
+	gamma	= 1 ,	1				# [1]
+	Talpha	= -1.5000e+00 ,	-1.5000e+00		# [1]
+	Tcoeff	= 2.55 ,	2.55			# [1]
+	Etrap	= 0.0000e+00				# [eV]
+}
+
+vanOverstraetendeMan * Impact Ionization:
+{ * G_impact = alpha_n n v_drift_n  +  alpha_p p v_drift_p
+  * with alpha = gamma a  exp(-b gamma/E) for E<E0 (low) and E>E0 (high)
+  *  with gamma = tanh(hbarOmega/(2kT0)) / tanh(hbarOmega/(2kT))
+	a(low)	= 2.9e8 ,	1.3400e+07		# [1/cm]
+	a(high)	= 2.9e8 ,	1.3400e+07		# [1/cm]
+	b(low)	= 3.4e8 ,	2.0300e+08		# [V/cm]
+	b(high)	= 3.4e8 ,	2.0300e+08		# [V/cm]
+	E0	= 4.0000e+05,	4.0000e+05		#[V/cm]
+	hbarOmega	= 0.035,	0.035		#[V/cm]
+}
+
+*******************************************************************
+*  Parameters for the recombination models below were taken 
+*  from GaAs and require calibration for accurate simulations
+*******************************************************************
+Auger * coefficients:
+{ * R_Auger = ( C_n n + C_p p ) ( n p - ni_eff^2)
+  * with C_n,p = (A + B (T/T0) + C (T/T0)^2) (1 + H exp(-{n,p}/N0))
+	A	= 1.0000e-30 ,	1.0000e-30	# [cm^6/s]
+	B	= 0.0000e+00 ,	0.0000e+00	# [cm^6/s]
+	C	= 0.0000e+00 ,	0.0000e+00	# [cm^6/s]
+	H	= 0.0000e+00 ,	0.0000e+00	# [1]
+	N0	= 1.0000e+18 ,	1.0000e+18	# [cm^(-3)]
+}
+
+RadiativeRecombination * coefficients:
+{ * R_Radiative = C (n p - ni_eff^2)
+	C	= 2.0000e-10	# [cm^3/s]
+}
+

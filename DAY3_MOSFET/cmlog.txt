@@ -1,0 +1,5 @@
+DATE: 09/12/21 - 09/12/21 cmlog.txt
+
+This localhost (server) information:
+	Name:    workstation
+	Address: fe80::2743:19c7:c32c:3f44

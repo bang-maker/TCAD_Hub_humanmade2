@@ -1,0 +1,11 @@
+ 
+
+MaterialInterface="Silicon/Oxide" {
+	FowlerModel{
+		Aw = 1.21e-6
+		Bw = 2.31e8
+		Ae = 1.81e-7
+		Be = 1.82e7
+		Gm = 1
+	}
+}

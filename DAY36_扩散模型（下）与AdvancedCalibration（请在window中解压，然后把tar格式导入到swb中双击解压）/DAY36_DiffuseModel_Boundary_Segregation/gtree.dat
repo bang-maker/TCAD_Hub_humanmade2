@@ -1,0 +1,60 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Sun Sep 18 08:52:41 2022
+
+# --- simulation flow
+Segregation sprocess "" {}
+Segregation Dopant "Boron" {Boron Phosphorus}
+Segregation annealing "1" {1}
+Segregation K_s "0.0" {0.5 1.0 1.5 6 default}
+BActive svisual "" {}
+PActive svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default Dopant ""
+scenario default annealing ""
+scenario default K_s ""
+scenario BI1 Dopant ""
+scenario BI1 annealing ""
+scenario BI1 K_s ""
+scenario BI0 Dopant ""
+scenario BI0 annealing ""
+scenario BI0 K_s ""
+scenario E Dopant ""
+scenario E annealing ""
+scenario E K_s ""
+# --- simulation tree
+0 264 0 {} {default} 0
+1 211 264 {Boron} {default} 0
+2 240 211 {1} {default} 0
+3 246 240 {0.5} {default} 0
+4 247 246 {} {default} 0
+5 248 247 {} {*default} 0
+3 252 240 {1.0} {default} 0
+4 253 252 {} {default} 0
+5 254 253 {} {*default} 0
+3 258 240 {1.5} {default} 0
+4 259 258 {} {default} 0
+5 260 259 {} {*default} 0
+3 279 240 {6} {default} 0
+4 280 279 {} {default} 0
+5 281 280 {} {*default} 0
+3 285 240 {default} {default} 0
+4 286 285 {} {default} 0
+5 287 286 {} {*default} 0
+1 265 264 {Phosphorus} {default} 0
+2 266 265 {1} {default} 0
+3 270 266 {0.5} {default} 0
+4 271 270 {} {*default} 0
+5 272 271 {} {default} 0
+3 273 266 {1.0} {default} 0
+4 274 273 {} {*default} 0
+5 275 274 {} {default} 0
+3 276 266 {1.5} {default} 0
+4 277 276 {} {*default} 0
+5 278 277 {} {default} 0
+3 282 266 {6} {default} 0
+4 283 282 {} {*default} 0
+5 284 283 {} {default} 0
+3 288 266 {default} {default} 0
+4 289 288 {} {*default} 0
+5 290 289 {} {default} 0

@@ -1,0 +1,25 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Sat Oct 30 07:07:40 2021
+
+# --- simulation flow
+MOSFET sde "" {}
+MOSFET type "NMOS" {NMOS}
+IdVg sdevice "" {}
+IdVg transport_model "drift_diffuse" {drift_diffuse thermodynamic hydrodynamic hydrodynamic_latticeTemperature}
+DrawIdVg svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default type ""
+scenario default transport_model ""
+# --- simulation tree
+0 1 0 {} {default} 0
+1 2 1 {NMOS} {default} 0
+2 3 2 {} {default} 0
+3 4 3 {drift_diffuse} {default} 0
+4 6 4 {} {default} 0
+3 5 3 {thermodynamic} {default} 0
+4 7 5 {} {default} 0
+3 8 3 {hydrodynamic} {default} 0
+4 9 8 {} {default} 0
+3 10 3 {hydrodynamic_latticeTemperature} {default} 0
+4 11 10 {} {default} 0

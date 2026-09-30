@@ -1,0 +1,61 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Tue Nov  2 10:15:08 2021
+
+# --- simulation flow
+EmitterImp sprocess "" {}
+EmitterImp imp_energy "30" {30}
+BaseImp sprocess "" {}
+IGBT sde "-defaultGUI" {}
+BV_ABA sdevice "" {}
+PlotBV_ABA svisual "" {}
+BV_ABA_coupled sdevice "" {}
+PlotBV_ABA_coupled svisual "" {}
+BV_normal sdevice "" {}
+PlotBV_normal svisual "" {}
+BV_voltage2current sdevice "" {}
+PlotBV_voltage2current svisual "" {}
+BV_add_resistor sdevice "" {}
+BV_add_resistor model "-" {- AvalDensGradQF}
+PlotBV_resistor svisual "" {}
+BV_curve_trace sdevice "" {}
+PlotBV_curve_trace svisual "" {}
+BV_Transient sdevice "" {}
+BV_Transient FinalTime "1e4" {1e4 1e7}
+PlotBV_transient svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default imp_energy ""
+scenario default model ""
+scenario default FinalTime ""
+# --- simulation tree
+0 5 0 {} {default} 0
+1 1 5 {30} {default} 0
+2 3 1 {} {default} 0
+3 4 3 {} {default} 0
+4 26 4 {} {default} 0
+5 23 26 {} {default} 0
+6 24 23 {} {default} 0
+7 25 24 {} {default} 0
+8 20 25 {} {default} 0
+9 21 20 {} {default} 0
+10 16 21 {} {default} 0
+11 17 16 {} {default} 0
+12 45 17 {} {default} 0
+13 27 45 {-} {default} 0
+14 36 27 {} {default} 0
+15 29 36 {} {default} 0
+16 30 29 {} {default} 0
+17 32 30 {} {default} 0
+18 31 32 {1e4} {default} 0
+19 34 31 {} {default} 0
+18 33 32 {1e7} {default} 0
+19 35 33 {} {default} 0
+13 46 45 {AvalDensGradQF} {default} 0
+14 47 46 {} {default} 0
+15 48 47 {} {default} 0
+16 49 48 {} {default} 0
+17 50 49 {} {default} 0
+18 51 50 {1e4} {default} 0
+19 52 51 {} {default} 0
+18 53 50 {1e7} {default} 0
+19 54 53 {} {default} 0

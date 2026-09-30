@@ -1,0 +1,48 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Sun Sep 18 09:09:09 2022
+
+# --- simulation flow
+ConstantSource sprocess "" {}
+ConstantSource Cstar "1e20" {1e20 1e10}
+ConstantSource annealing "1" {1}
+ConstantSource Time "1000" {1000 2000 3000}
+BActive svisual "" {}
+Boron svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default Cstar ""
+scenario default annealing ""
+scenario default Time ""
+scenario BI1 Cstar ""
+scenario BI1 annealing ""
+scenario BI1 Time ""
+scenario BI0 Cstar ""
+scenario BI0 annealing ""
+scenario BI0 Time ""
+scenario E Cstar ""
+scenario E annealing ""
+scenario E Time ""
+# --- simulation tree
+0 289 0 {} {default} 0
+1 57 289 {1e20} {default} 0
+2 275 57 {1} {default} 0
+3 279 275 {1000} {default} 0
+4 280 279 {} {default} 0
+5 290 280 {} {default} 0
+3 283 275 {2000} {default} 0
+4 284 283 {} {default} 0
+5 291 284 {} {default} 0
+3 286 275 {3000} {default} 0
+4 287 286 {} {default} 0
+5 292 287 {} {default} 0
+1 293 289 {1e10} {default} 0
+2 294 293 {1} {default} 0
+3 295 294 {1000} {default} 0
+4 296 295 {} {default} 0
+5 297 296 {} {default} 0
+3 298 294 {2000} {default} 0
+4 299 298 {} {default} 0
+5 300 299 {} {default} 0
+3 301 294 {3000} {default} 0
+4 302 301 {} {default} 0
+5 303 302 {} {default} 0

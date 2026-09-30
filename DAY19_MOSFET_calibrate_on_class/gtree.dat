@@ -1,0 +1,28 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Sun Nov 28 06:16:17 2021
+
+# --- simulation flow
+MOSFET sde "" {}
+MOSFET type "NMOS" {NMOS}
+MOSFET Lgate "0.3" {0.35}
+IdVg sdevice "--xml" {}
+IdVg workfunction "4.56" {4.58}
+IdVg lambda_factor "1.0" {1.5}
+IdVg vsat_factor "0.8" {0.9}
+Compare svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default type ""
+scenario default Lgate ""
+scenario default workfunction ""
+scenario default lambda_factor ""
+scenario default vsat_factor ""
+# --- simulation tree
+0 6 0 {} {default} 0
+1 2 6 {NMOS} {default} 0
+2 19 2 {0.35} {default} 0
+3 103 19 {} {default} 0
+4 106 103 {4.58} {default} 0
+5 111 106 {1.5} {default} 0
+6 112 111 {0.9} {default} 0
+7 113 112 {} {default} 0

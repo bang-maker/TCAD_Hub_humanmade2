@@ -1,0 +1,8 @@
+DATE: 12/12/21 - 12/12/21 cmlog.txt
+
+This localhost (server) information:
+	Name:    workstation
+	Address: 127.0.0.1
+SWBTcpSocket::connectToServer exception: SWBTcpSocket::connectToServer: errno: Connection refused
+
+  Connect failed

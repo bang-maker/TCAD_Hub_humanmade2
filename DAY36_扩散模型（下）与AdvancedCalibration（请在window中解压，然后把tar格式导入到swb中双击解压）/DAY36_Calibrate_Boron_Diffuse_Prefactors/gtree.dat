@@ -1,0 +1,44 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Sun Sep 18 10:49:19 2022
+
+# --- simulation flow
+Calibration sprocess "" {}
+Calibration annealing "1" {1}
+Calibration WithCalibration "No" {No Yes}
+Calibration factor "0" {0.0 - 0.1 0.5 1.0}
+BActive svisual "" {}
+BTotal svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default annealing ""
+scenario default WithCalibration ""
+scenario default factor ""
+scenario BI1 annealing ""
+scenario BI1 WithCalibration ""
+scenario BI1 factor ""
+scenario BI0 annealing ""
+scenario BI0 WithCalibration ""
+scenario BI0 factor ""
+scenario E annealing ""
+scenario E WithCalibration ""
+scenario E factor ""
+# --- simulation tree
+0 1 0 {} {default BI0} 0
+1 15 1 {1} {default BI0} 0
+2 2 15 {No} {default BI0} 0
+3 3 2 {-} {default BI0} 0
+4 7 3 {} {default BI0} 0
+5 11 7 {} {default BI0} 0
+2 16 15 {Yes} {default} 0
+3 17 16 {0.0} {default} 0
+4 18 17 {} {default} 0
+5 19 18 {} {default} 0
+3 20 16 {0.1} {default} 0
+4 21 20 {} {default} 0
+5 22 21 {} {default} 0
+3 23 16 {0.5} {default} 0
+4 24 23 {} {default} 0
+5 25 24 {} {default} 0
+3 26 16 {1.0} {default} 0
+4 27 26 {} {default} 0
+5 28 27 {} {default} 0

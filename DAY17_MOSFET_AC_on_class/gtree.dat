@@ -1,0 +1,33 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Sun Nov 21 05:15:36 2021
+
+# --- simulation flow
+MOSFET sde "" {}
+MOSFET type "NMOS" {NMOS}
+MOSFET Lgate "0.3" {0.065}
+MOSFET Tox "5" {2}
+IdVg sdevice "" {}
+IdVg Vdd "2.0" {2.0}
+DrawIdVg svisual "" {}
+CV sdevice "" {}
+DrawCV svisual "" {}
+MOSFET_AC sdevice "" {}
+DrawAC svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default type ""
+scenario default Lgate ""
+scenario default Tox ""
+scenario default Vdd ""
+# --- simulation tree
+0 177 0 {} {default} 0
+1 1 177 {NMOS} {default} 0
+2 172 1 {0.065} {default} 0
+3 96 172 {2} {default} 0
+4 185 96 {} {default} 0
+5 97 185 {2.0} {default} 0
+6 98 97 {} {default} 0
+7 186 98 {} {default} 0
+8 187 186 {} {default} 0
+9 188 187 {} {default} 0
+10 189 188 {} {default} 0

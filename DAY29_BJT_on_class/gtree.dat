@@ -1,0 +1,61 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Sun Feb 27 06:12:22 2022
+
+# --- simulation flow
+BJT sprocess "--xml" {}
+BJT mesh_type "1" {adaptive static}
+BJT NWELL "1" {1}
+BJT DRIVE "1" {1}
+BJT STI "1" {1}
+BJT BASE "1" {1}
+BJT EMITTER "1" {1}
+BJT NPplus "1" {1}
+BJT CONTACT "1" {1}
+BJT REMESH "1" {1}
+GummelPlot sdevice "" {}
+DrawGummelPlot svisual "" {}
+IcVce sdevice "" {}
+IcVce Ib "1e-5" {1e-5}
+DrawIcVce svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default mesh_type ""
+scenario default NWELL ""
+scenario default DRIVE ""
+scenario default STI ""
+scenario default BASE ""
+scenario default EMITTER ""
+scenario default NPplus ""
+scenario default CONTACT ""
+scenario default REMESH ""
+scenario default Ib ""
+# --- simulation tree
+0 15 0 {} {default} 0
+1 2 15 {adaptive} {default} 0
+2 3 2 {1} {default} 0
+3 4 3 {1} {default} 0
+4 5 4 {1} {default} 0
+5 6 5 {1} {default} 0
+6 7 6 {1} {default} 0
+7 8 7 {1} {default} 0
+8 9 8 {1} {default} 0
+9 1 9 {1} {default} 0
+10 10 1 {} {default} 0
+11 11 10 {} {default} 0
+12 14 11 {} {default} 0
+13 12 14 {1e-5} {default} 0
+14 13 12 {} {default} 0
+1 16 15 {static} {default} 0
+2 17 16 {1} {default} 0
+3 18 17 {1} {default} 0
+4 19 18 {1} {default} 0
+5 20 19 {1} {default} 0
+6 21 20 {1} {default} 0
+7 22 21 {1} {default} 0
+8 23 22 {1} {default} 0
+9 24 23 {1} {default} 0
+10 25 24 {} {default} 0
+11 26 25 {} {default} 0
+12 27 26 {} {default} 0
+13 28 27 {1e-5} {default} 0
+14 29 28 {} {default} 0

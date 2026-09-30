@@ -1,0 +1,52 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Sun Nov 14 05:42:16 2021
+
+# --- simulation flow
+MOSFET sde "" {}
+MOSFET type "NMOS" {NMOS}
+MOSFET Lgate "0.3" {0.3}
+IdVg sdevice "" {}
+IdVg traps "-" {- Acceptor Donor Acceptor_Donor interface}
+IdVg TrapFilling "Empty" {Empty Frozen Full -}
+DrawIdVg svisual "" {}
+DrawTraps svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default type ""
+scenario default Lgate ""
+scenario default traps ""
+scenario default TrapFilling ""
+# --- simulation tree
+0 6 0 {} {default} 0
+1 2 6 {NMOS} {default} 0
+2 1 2 {0.3} {default} 0
+3 719 1 {} {default} 0
+4 733 719 {-} {default} 0
+5 768 733 {-} {default} 0
+6 769 768 {} {default} 0
+7 770 769 {} {default} 0
+4 734 719 {Acceptor} {default} 0
+5 771 734 {-} {default} 0
+6 772 771 {} {default} 0
+7 773 772 {} {default} 0
+4 735 719 {Donor} {default} 0
+5 774 735 {-} {default} 0
+6 775 774 {} {default} 0
+7 776 775 {} {default} 0
+4 736 719 {Acceptor_Donor} {default} 0
+5 724 736 {Empty} {default} 0
+6 725 724 {} {default} 0
+7 731 725 {} {default} 0
+5 747 736 {Frozen} {default} 0
+6 748 747 {} {default} 0
+7 749 748 {} {default} 0
+5 762 736 {Full} {default} 0
+6 763 762 {} {default} 0
+7 764 763 {} {default} 0
+5 777 736 {-} {default} 0
+6 778 777 {} {default} 0
+7 779 778 {} {default} 0
+4 737 719 {interface} {default} 0
+5 780 737 {-} {default} 0
+6 781 780 {} {default} 0
+7 782 781 {} {default} 0

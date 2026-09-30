@@ -1,0 +1,46 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Sun Jan 30 09:46:01 2022
+
+# --- simulation flow
+sprocess sprocess "" {}
+sprocess trench "1" {1}
+sprocess mesh_type "interface_AAM" {interface_AAM interface_offsetting body_mesh mixed}
+sprocess case "1" {1 2 3 4 5 6 7 8 9 10}
+# --- variables
+# --- scenarios and parameter specs
+scenario default trench ""
+scenario default mesh_type ""
+scenario default case ""
+# --- simulation tree
+0 2 0 {} {default} 0
+1 3 2 {1} {default} 0
+2 4 3 {interface_AAM} {default} 0
+3 1 4 {1} {default} 0
+3 5 4 {2} {default} 0
+3 6 4 {3} {default} 0
+3 7 4 {4} {default} 0
+3 8 4 {5} {default} 0
+3 9 4 {6} {default} 0
+3 10 4 {7} {default} 0
+3 11 4 {8} {default} 0
+3 12 4 {9} {default} 0
+2 13 3 {interface_offsetting} {default} 0
+3 14 13 {1} {default} 0
+3 15 13 {2} {default} 0
+3 16 13 {3} {default} 0
+3 17 13 {4} {default} 0
+3 18 13 {5} {default} 0
+3 19 13 {6} {default} 0
+2 23 3 {body_mesh} {default} 0
+3 24 23 {1} {default} 0
+3 25 23 {2} {default} 0
+3 26 23 {3} {default} 0
+3 27 23 {4} {default} 0
+3 28 23 {5} {default} 0
+3 29 23 {6} {default} 0
+3 30 23 {7} {default} 0
+3 31 23 {8} {default} 0
+3 32 23 {9} {default} 0
+3 35 23 {10} {default} 0
+2 36 3 {mixed} {default} 0
+3 37 36 {1} {default} 0

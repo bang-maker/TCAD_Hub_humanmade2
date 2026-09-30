@@ -1,0 +1,22 @@
+#define ParFileDir .
+
+Material="AlGaN" {
+  #includeext "ParFileDir/AlGaN.par"
+}
+Material="GaN" {
+  #includeext "ParFileDir/GaN.par"
+}
+
+
+LatticeParameters
+{ 
+  * X and Y vectors define the simulation coordinate system relative to the
+  * crystal orientation system.
+    X = (1 0  0)
+    Y = (0 0 -1)
+}                
+
+
+ThermioncEmission {
+	Formula= 1
+}

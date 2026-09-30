@@ -1,0 +1,27 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Tue Nov  2 09:42:21 2021
+
+# --- simulation flow
+PNdiode sde "" {}
+PNdiode Ndop "1e15" {1e15}
+IV sdevice "" {}
+IV Temperature "300" {300 325 350 375 400}
+DrawIV svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default Ndop ""
+scenario default Temperature ""
+# --- simulation tree
+0 43 0 {} {default} 0
+1 17 43 {1e15} {default} 0
+2 38 17 {} {default} 0
+3 4 38 {300} {default} 0
+4 3 4 {} {default} 0
+3 52 38 {325} {default} 0
+4 53 52 {} {default} 0
+3 56 38 {350} {default} 0
+4 57 56 {} {default} 0
+3 60 38 {375} {default} 0
+4 61 60 {} {default} 0
+3 39 38 {400} {default} 0
+4 40 39 {} {default} 0

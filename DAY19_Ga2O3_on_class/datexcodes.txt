@@ -1,0 +1,21 @@
+DATEX2.1
+Datacode
+"$DateTime: 2018/04/20 06:55:03 $"
+"Data codes for semiconductor process and device simulation"
+
+
+Materials {
+
+    Ga2O3_my {
+        label   = "Ga2O3_my"
+        group   = Semiconductor
+        color   = #ff79ac, #2e7d32
+    }
+    
+	Al2O3_my {
+        label   = "6H-SiC"
+        group   = Insulator
+        color   = #ff79ac, #2e7d32
+    }
+ 
+}

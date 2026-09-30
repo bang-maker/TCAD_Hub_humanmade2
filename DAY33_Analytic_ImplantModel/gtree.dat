@@ -1,0 +1,58 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Tue Mar 29 09:58:18 2022
+
+# --- simulation flow
+Implant sprocess "--xml" {}
+Implant ImplantModel "dualpearson" {dualpearson gaussian pearson pearson.s}
+Implant ImplantTable "Default" {Default Dios Tasch Taurus TSuprem4}
+Draw svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default ImplantModel ""
+scenario default ImplantTable ""
+# --- simulation tree
+0 109 0 {} {default} 0
+1 116 109 {dualpearson} {default} 0
+2 25 116 {Default} {default} 0
+3 45 25 {} {default} 0
+2 120 116 {Dios} {default} 0
+3 121 120 {} {default} 0
+2 128 116 {Tasch} {default} 0
+3 129 128 {} {default} 0
+2 136 116 {Taurus} {default} 0
+3 137 136 {} {default} 0
+2 144 116 {TSuprem4} {default} 0
+3 145 144 {} {default} 0
+1 117 109 {gaussian} {default} 0
+2 110 117 {Default} {default} 0
+3 111 110 {} {default} 0
+2 122 117 {Dios} {default} 0
+3 123 122 {} {default} 0
+2 130 117 {Tasch} {default} 0
+3 131 130 {} {default} 0
+2 138 117 {Taurus} {default} 0
+3 139 138 {} {default} 0
+2 146 117 {TSuprem4} {default} 0
+3 147 146 {} {default} 0
+1 118 109 {pearson} {default} 0
+2 112 118 {Default} {default} 0
+3 113 112 {} {default} 0
+2 124 118 {Dios} {default} 0
+3 125 124 {} {default} 0
+2 132 118 {Tasch} {default} 0
+3 133 132 {} {default} 0
+2 140 118 {Taurus} {default} 0
+3 141 140 {} {default} 0
+2 148 118 {TSuprem4} {default} 0
+3 149 148 {} {default} 0
+1 119 109 {pearson.s} {default} 0
+2 114 119 {Default} {default} 0
+3 115 114 {} {default} 0
+2 126 119 {Dios} {default} 0
+3 127 126 {} {default} 0
+2 134 119 {Tasch} {default} 0
+3 135 134 {} {default} 0
+2 142 119 {Taurus} {default} 0
+3 143 142 {} {default} 0
+2 150 119 {TSuprem4} {default} 0
+3 151 150 {} {default} 0

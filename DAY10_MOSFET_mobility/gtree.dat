@@ -1,0 +1,46 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Sun Oct 24 09:34:57 2021
+
+# --- simulation flow
+MOSFET sde "" {}
+MOSFET type "NMOS" {NMOS}
+IdVg sdevice "" {}
+IdVg model "Constant" {Constant DopingDep DopingDep_Enormal DopingDep_Enormal_HFS Enormal HFS}
+IdVg driving_force "-" {- CarrierTempDrive Eparallel EparallelToInterface GradQuasiFermi}
+DrawIdVg svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default type ""
+scenario default model ""
+scenario default driving_force ""
+scenario driving_force type ""
+scenario driving_force model ""
+scenario driving_force driving_force ""
+# --- simulation tree
+0 1 0 {} {driving_force default} 0
+1 2 1 {NMOS} {driving_force default} 0
+2 65 2 {} {driving_force default} 0
+3 85 65 {Constant} {default} 0
+4 12 85 {-} {default} 0
+5 60 12 {} {default} 0
+3 86 65 {DopingDep} {default} 0
+4 67 86 {-} {default} 0
+5 68 67 {} {default} 0
+3 87 65 {DopingDep_Enormal} {default} 0
+4 71 87 {-} {default} 0
+5 72 71 {} {default} 0
+3 88 65 {DopingDep_Enormal_HFS} {driving_force} 0
+4 91 88 {CarrierTempDrive} {driving_force} 0
+5 92 91 {} {driving_force} 0
+4 95 88 {Eparallel} {driving_force} 0
+5 96 95 {} {driving_force} 0
+4 99 88 {EparallelToInterface} {driving_force} 0
+5 100 99 {} {driving_force} 0
+4 103 88 {GradQuasiFermi} {driving_force} 0
+5 104 103 {} {driving_force} 0
+3 89 65 {Enormal} {default} 0
+4 79 89 {-} {default} 0
+5 80 79 {} {default} 0
+3 90 65 {HFS} {driving_force default} 0
+4 83 90 {-} {driving_force default} 0
+5 84 83 {} {driving_force default} 0

@@ -1,0 +1,79 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Sun Sep 18 09:14:58 2022
+
+# --- simulation flow
+DopantCluster sprocess "" {}
+DopantCluster annealing "1" {1}
+DopantCluster Dose "1e14" {1e14 1e15 5e15}
+DopantCluster ActiveModel "BIC" {BIC ChargedCluster None Transient}
+BActive svisual "" {}
+BTotal svisual "" {}
+ITotal svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default annealing ""
+scenario default Dose ""
+scenario default ActiveModel ""
+scenario BI1 annealing ""
+scenario BI1 Dose ""
+scenario BI1 ActiveModel ""
+scenario BI0 annealing ""
+scenario BI0 Dose ""
+scenario BI0 ActiveModel ""
+scenario E annealing ""
+scenario E Dose ""
+scenario E ActiveModel ""
+# --- simulation tree
+0 1 0 {} {default} 0
+1 2 1 {1} {default} 0
+2 3 2 {1e14} {default} 0
+3 6 3 {BIC} {default} 0
+4 18 6 {} {default} 0
+5 30 18 {} {default} 0
+6 42 30 {} {default} 0
+3 7 3 {ChargedCluster} {default} 0
+4 19 7 {} {default} 0
+5 31 19 {} {default} 0
+6 43 31 {} {default} 0
+3 8 3 {None} {default} 0
+4 20 8 {} {default} 0
+5 32 20 {} {default} 0
+6 44 32 {} {default} 0
+3 9 3 {Transient} {default} 0
+4 21 9 {} {default} 0
+5 33 21 {} {default} 0
+6 45 33 {} {default} 0
+2 4 2 {1e15} {default} 0
+3 10 4 {BIC} {default} 0
+4 22 10 {} {default} 0
+5 34 22 {} {default} 0
+6 46 34 {} {default} 0
+3 11 4 {ChargedCluster} {default} 0
+4 23 11 {} {default} 0
+5 35 23 {} {default} 0
+6 47 35 {} {default} 0
+3 12 4 {None} {default} 0
+4 24 12 {} {default} 0
+5 36 24 {} {default} 0
+6 48 36 {} {default} 0
+3 13 4 {Transient} {default} 0
+4 25 13 {} {default} 0
+5 37 25 {} {default} 0
+6 49 37 {} {default} 0
+2 5 2 {5e15} {default} 0
+3 14 5 {BIC} {default} 0
+4 26 14 {} {default} 0
+5 38 26 {} {default} 0
+6 50 38 {} {default} 0
+3 15 5 {ChargedCluster} {default} 0
+4 27 15 {} {default} 0
+5 39 27 {} {default} 0
+6 51 39 {} {default} 0
+3 16 5 {None} {default} 0
+4 28 16 {} {default} 0
+5 40 28 {} {default} 0
+6 52 40 {} {default} 0
+3 17 5 {Transient} {default} 0
+4 29 17 {} {default} 0
+5 41 29 {} {default} 0
+6 53 41 {} {default} 0

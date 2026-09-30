@@ -1,0 +1,73 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Sun Sep 18 10:40:03 2022
+
+# --- simulation flow
+Calibration sprocess "" {}
+Calibration annealing "1" {1}
+Calibration f_BI0 "0.1" {0.1 1.0 0.01 10}
+Calibration f_BI1 "1.0" {1.0 0.01 0.1 10}
+Calibration E "3.57" {3.57 3.0 3.2 3.4}
+BActive svisual "" {}
+BTotal svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default annealing ""
+scenario default f_BI0 ""
+scenario default f_BI1 ""
+scenario default E ""
+scenario BI1 annealing ""
+scenario BI1 f_BI0 ""
+scenario BI1 f_BI1 ""
+scenario BI1 E ""
+scenario BI0 annealing ""
+scenario BI0 f_BI0 ""
+scenario BI0 f_BI1 ""
+scenario BI0 E ""
+scenario E annealing ""
+scenario E f_BI0 ""
+scenario E f_BI1 ""
+scenario E E ""
+# --- simulation tree
+0 57 0 {} {BI1 E BI0 default} 0
+1 74 57 {1} {BI1 E BI0 default} 0
+2 84 74 {0.1} {BI0 default} 0
+3 105 84 {1.0} {BI0 default} 0
+4 5 105 {3.57} {BI0 default} 0
+5 22 5 {} {BI0 default} 0
+6 124 22 {} {BI0 default} 0
+2 86 74 {1.0} {BI1 E BI0 default} 0
+3 106 86 {1.0} {BI1 E BI0 default} 0
+4 78 106 {3.57} {BI1 E BI0 default} 0
+5 79 78 {} {BI1 E BI0 default} 0
+6 125 79 {} {BI1 E BI0 default} 0
+4 112 106 {3.0} {E} 0
+5 113 112 {} {E} 0
+6 126 113 {} {E} 0
+4 118 106 {3.2} {E} 0
+5 119 118 {} {E} 0
+6 127 119 {} {E} 0
+4 121 106 {3.4} {E} 0
+5 122 121 {} {E} 0
+6 128 122 {} {E} 0
+3 107 86 {0.01} {BI1} 0
+4 88 107 {3.57} {BI1} 0
+5 89 88 {} {BI1} 0
+6 129 89 {} {BI1} 0
+3 108 86 {0.1} {BI1} 0
+4 91 108 {3.57} {BI1} 0
+5 92 91 {} {BI1} 0
+6 130 92 {} {BI1} 0
+3 109 86 {10} {BI1} 0
+4 94 109 {3.57} {BI1} 0
+5 95 94 {} {BI1} 0
+6 131 95 {} {BI1} 0
+2 97 74 {0.01} {BI0} 0
+3 110 97 {1.0} {BI0} 0
+4 98 110 {3.57} {BI0} 0
+5 99 98 {} {BI0} 0
+6 132 99 {} {BI0} 0
+2 101 74 {10} {BI0} 0
+3 111 101 {1.0} {BI0} 0
+4 102 111 {3.57} {BI0} 0
+5 103 102 {} {BI0} 0
+6 133 103 {} {BI0} 0

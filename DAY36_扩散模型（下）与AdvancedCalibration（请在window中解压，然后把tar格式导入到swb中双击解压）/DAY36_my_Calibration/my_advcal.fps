@@ -1,0 +1,24 @@
+set version 1.0
+
+
+AdvancedCalibration 2018.06
+
+LogFile ""
+LogFile "#############################################################"
+LogFile "#   loading the calibration File of Lanxiaomu,version:$version   #"
+LogFile "#############################################################"
+LogFile ""
+LogFile !PrintCommands ;# disable the logging output of this file
+
+#Diffusion Model 
+pdbSet Silicon Boron DiffModel ChargedReact
+
+pdbSet Silicon Boron Int D {				
+							    0 {[expr 1.02*[Arr  0.009 3.50]]}
+							    1 {[expr 3.05*[Arr  0.054 3.50]]}
+					}
+ 
+#Segregation
+pdbSet Oxide_Silicon  Boron  Segregation 0.1
+
+#.....

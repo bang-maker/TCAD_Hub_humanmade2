@@ -1,0 +1,47 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Tue Jun  7 10:04:34 2022
+
+# --- simulation flow
+Implant sprocess "--xml" {}
+Implant MCParticles "1e3" {1e5}
+Implant dose "1e14" {1e14 2e14 3e14}
+Implant energy "120" {120 100}
+Implant anneal "1" {1}
+DrawBeforeAnneal svisual "" {}
+DrawAfterAnneal svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default MCParticles ""
+scenario default dose ""
+scenario default energy ""
+scenario default anneal ""
+# --- simulation tree
+0 166 0 {} {default} 0
+1 179 166 {1e5} {default} 0
+2 180 179 {1e14} {default} 0
+3 171 180 {120} {default} 0
+4 172 171 {1} {default} 0
+5 173 172 {} {default} 0
+6 174 173 {} {default} 0
+3 191 180 {100} {default} 0
+4 192 191 {1} {default} 0
+5 193 192 {} {default} 0
+6 194 193 {} {default} 0
+2 181 179 {2e14} {default} 0
+3 182 181 {120} {default} 0
+4 183 182 {1} {default} 0
+5 184 183 {} {default} 0
+6 185 184 {} {default} 0
+3 195 181 {100} {default} 0
+4 196 195 {1} {default} 0
+5 197 196 {} {default} 0
+6 198 197 {} {default} 0
+2 186 179 {3e14} {default} 0
+3 187 186 {120} {default} 0
+4 188 187 {1} {default} 0
+5 189 188 {} {default} 0
+6 190 189 {} {default} 0
+3 199 186 {100} {default} 0
+4 200 199 {1} {default} 0
+5 201 200 {} {default} 0
+6 202 201 {} {default} 0

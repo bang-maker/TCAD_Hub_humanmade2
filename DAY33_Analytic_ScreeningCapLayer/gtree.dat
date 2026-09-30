@@ -1,0 +1,38 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Tue Mar 29 09:14:27 2022
+
+# --- simulation flow
+Implant sprocess "--xml" {}
+Implant species "Boron" {Boron Phosphorus}
+Implant Tox "0.01" {0.01 0.1}
+Implant f_eff "1.0" {1.0 0.5}
+Draw svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default species ""
+scenario default Tox ""
+scenario default f_eff ""
+# --- simulation tree
+0 152 0 {} {default} 0
+1 157 152 {Boron} {default} 0
+2 163 157 {0.01} {default} 0
+3 153 163 {1.0} {default} 0
+4 154 153 {} {default} 0
+3 167 163 {0.5} {default} 0
+4 168 167 {} {default} 0
+2 164 157 {0.1} {default} 0
+3 159 164 {1.0} {default} 0
+4 160 159 {} {default} 0
+3 171 164 {0.5} {default} 0
+4 172 171 {} {default} 0
+1 158 152 {Phosphorus} {default} 0
+2 165 158 {0.01} {default} 0
+3 155 165 {1.0} {default} 0
+4 156 155 {} {default} 0
+3 169 165 {0.5} {default} 0
+4 170 169 {} {default} 0
+2 166 158 {0.1} {default} 0
+3 161 166 {1.0} {default} 0
+4 162 161 {} {default} 0
+3 173 166 {0.5} {default} 0
+4 174 173 {} {default} 0

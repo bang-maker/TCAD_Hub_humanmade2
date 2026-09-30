@@ -1,0 +1,26 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Tue Jun  7 10:05:49 2022
+
+# --- simulation flow
+Implant sprocess "--xml" {}
+Implant MCParticles "1e3" {1e4}
+Implant Smoothing "no" {no yes}
+Implant anneal "1" {1}
+DrawBeforeAnneal svisual "" {}
+DrawAfterAnneal svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default MCParticles ""
+scenario default Smoothing ""
+scenario default anneal ""
+# --- simulation tree
+0 166 0 {} {default} 0
+1 179 166 {1e4} {default} 0
+2 152 179 {no} {default} 0
+3 109 152 {1} {default} 0
+4 45 109 {} {default} 0
+5 160 45 {} {default} 0
+2 180 179 {yes} {default} 0
+3 181 180 {1} {default} 0
+4 182 181 {} {default} 0
+5 183 182 {} {default} 0

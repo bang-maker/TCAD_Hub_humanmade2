@@ -1,0 +1,49 @@
+; Using DF-ISE coordinate system for structure generation
+(sde:set-process-up-direction "+z")
+;----------------------------------------------------------------------
+; Structure definition
+;----------------------------------------------------------------------;
+(sdegeo:set-default-boolean "BAB")
+; step 1 reading boundary of the device
+(sdeio:read-tdr-bnd "n@node|IGBT@_bnd.tdr")
+
+;------- get the max/min point in the device 
+(define BOX (bbox (get-body-list)))
+(display BOX) ; ((position min_x min_y min_z) (position max_x max_y max_z))
+(define Min_Point (car BOX))
+(define Max_Point (cdr BOX)) ;(position max_x max_y max_z)
+
+(define max_y (position:y Max_Point))
+(define max_x (position:x Max_Point))
+;------- add silicon region in the right
+(define Wadd 5.0)
+(sdegeo:create-rectangle
+  (position max_x 0.0 0.0 )  (position (+ max_x Wadd) max_y 0.0 ) "Silicon"  "R.Add" )
+
+(sdegeo:bool-unite (find-material-id "Silicon"))
+
+
+
+; step 2 reading data in the device
+(sdedr:define-submesh "ExternalProfileDefinition_1"  "n@node|IGBT@_msh.tdr")
+; step 3 match (boundary + data)
+(sdedr:define-refeval-window "RefEvalWin_1" "Rectangle"  	
+	Min_Point (position (+ max_x Wadd) max_y 0.0 )
+	)
+(sdedr:define-submesh-placement "ExternalProfilePlacement_1"  "ExternalProfileDefinition_1" "RefEvalWin_1" "NoReplace" 
+	"DecayLength" 1.0)
+; step 4 remesh 
+;----mesh defination(simplified)
+(sdedr:define-refinement-size "RefinementDefinition_1" 
+  1 10 1 0.05 0.05 0.05 )
+(sdedr:define-refinement-material "RefinementPlacement_1" 
+  "RefinementDefinition_1" "Silicon" )
+(sdedr:define-refinement-function "RefinementDefinition_1" 
+  "DopingConcentration" "MaxTransDiff" 1)
+
+
+(sde:build-mesh "n@node@")
+
+
+
+

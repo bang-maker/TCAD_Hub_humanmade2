@@ -1,0 +1,68 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Sat Nov 13 07:56:23 2021
+
+# --- simulation flow
+MOSFET sde "" {}
+MOSFET type "NMOS" {NMOS}
+MOSFET Lgate "0.3" {0.3}
+HeavyIon sdevice "" {}
+HeavyIon Vgate "0.0" {0.0 1.5}
+HeavyIon angle "60" {60 90 120}
+HeavyIon x0 "-0.2" {-0.2 0 0.2}
+DrawIt svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default type ""
+scenario default Lgate ""
+scenario default Vgate ""
+scenario default angle ""
+scenario default x0 ""
+# --- simulation tree
+0 1 0 {} {default} 0
+1 2 1 {NMOS} {default} 0
+2 3 2 {0.3} {default} 0
+3 50 3 {} {default} 0
+4 53 50 {0.0} {default} 0
+5 63 53 {60} {default} 0
+6 49 63 {-0.2} {default} 0
+7 31 49 {} {default} 0
+6 69 63 {0} {default} 0
+7 70 69 {} {default} 0
+6 81 63 {0.2} {default} 0
+7 82 81 {} {default} 0
+5 64 53 {90} {default} 0
+6 55 64 {-0.2} {default} 0
+7 56 55 {} {default} 0
+6 73 64 {0} {default} 0
+7 74 73 {} {default} 0
+6 85 64 {0.2} {default} 0
+7 86 85 {} {default} 0
+5 65 53 {120} {default} 0
+6 59 65 {-0.2} {default} 0
+7 60 59 {} {default} 0
+6 77 65 {0} {default} 0
+7 78 77 {} {default} 0
+6 89 65 {0.2} {default} 0
+7 90 89 {} {default} 0
+4 54 50 {1.5} {default} 0
+5 66 54 {60} {default} 0
+6 51 66 {-0.2} {default} 0
+7 52 51 {} {default} 0
+6 71 66 {0} {default} 0
+7 72 71 {} {default} 0
+6 83 66 {0.2} {default} 0
+7 84 83 {} {default} 0
+5 67 54 {90} {default} 0
+6 57 67 {-0.2} {default} 0
+7 58 57 {} {default} 0
+6 75 67 {0} {default} 0
+7 76 75 {} {default} 0
+6 87 67 {0.2} {default} 0
+7 88 87 {} {default} 0
+5 68 54 {120} {default} 0
+6 61 68 {-0.2} {default} 0
+7 62 61 {} {default} 0
+6 79 68 {0} {default} 0
+7 80 79 {} {default} 0
+6 91 68 {0.2} {default} 0
+7 92 91 {} {default} 0

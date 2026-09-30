@@ -1,0 +1,36 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Sat Nov 13 10:45:38 2021
+
+# --- simulation flow
+MOSFET sde "" {}
+MOSFET type "NMOS" {NMOS}
+MOSFET Lgate "0.3" {0.3}
+IdVg sdevice "" {}
+IdVg model "SpatialShape_gaussian" {SpatialShape_gaussian SpatialShape_uniform SingleTrap DeepLevels SingleTrap_Rand1 SingleTrap_Rand2 SpatialLevel SpatialLevel_Rand}
+DrawIdVg svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default type ""
+scenario default Lgate ""
+scenario default model ""
+# --- simulation tree
+0 1 0 {} {default} 0
+1 2 1 {NMOS} {default} 0
+2 3 2 {0.3} {default} 0
+3 94 3 {} {default} 0
+4 8 94 {SpatialShape_gaussian} {default} 0
+5 6 8 {} {default} 0
+4 95 94 {SpatialShape_uniform} {default} 0
+5 96 95 {} {default} 0
+4 98 94 {SingleTrap} {default} 0
+5 99 98 {} {default} 0
+4 101 94 {DeepLevels} {default} 0
+5 102 101 {} {default} 0
+4 104 94 {SingleTrap_Rand1} {default} 0
+5 105 104 {} {default} 0
+4 107 94 {SingleTrap_Rand2} {default} 0
+5 108 107 {} {default} 0
+4 110 94 {SpatialLevel} {default} 0
+5 111 110 {} {default} 0
+4 113 94 {SpatialLevel_Rand} {default} 0
+5 114 113 {} {default} 0

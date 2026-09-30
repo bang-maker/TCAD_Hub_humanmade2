@@ -1,0 +1,29 @@
+Material = "GaN" {
+  #include "GaN_des.par"
+}
+Material = "AlN" {
+  #include "AlN_des.par"
+}
+Material = "AlGaN" {
+  #include "AlGaN_des.par"
+}
+Material = "Nitride" {
+  #include "Nitride.par"
+}
+
+Electrode="gate" {
+
+SchottkyResistance {
+	Rinf = @<RScale*2.4000e-09>@ , @<RScale*5.2000e-09>@ # [Ohm*cm^2]
+	PhiB = 0.6 , 0.51 # [eV]
+	mt = 0.19 , 0.16 # [1]
+}
+
+}
+
+LatticeParameters {
+  X = (1, 0, 0)
+  Y = (0, 0,-1)
+}
+
+

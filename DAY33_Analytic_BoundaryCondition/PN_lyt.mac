@@ -1,0 +1,49 @@
+# Sentaurus layout information - Sat May 22 22:58:11 2021
+# Version - O-2018.06-SP2 (697150)
+# Layout file:  /home/liulb/STDB/PN_DIODE_SPROCESS/PN1_sprocess/NwellPsub.gds
+# Cell: Cell0
+# Cell transform info:  1 0 0 0 0
+default winding 1
+layout new Cell0 -dbu 1e-9
+layer configure 1:0 -name OD -fill #9900ff00 -pattern solid -outline #9900ff00 -lineStyle solid -lineWidth 1 -reverse_tone 0 
+layer configure 2:0 -name NWELL -fill #990000ff -pattern solid -outline #990000ff -lineStyle solid -lineWidth 1 -reverse_tone 0 
+layer configure 3:0 -name NIMP -fill #99ffff00 -pattern solid -outline #99ffff00 -lineStyle solid -lineWidth 1 -reverse_tone 0 
+layer configure 4:0 -name PIMP -fill #99ff00ff -pattern solid -outline #99ff00ff -lineStyle solid -lineWidth 1 -reverse_tone 0 
+layer configure 5:0 -name VIA -fill #9900ffff -pattern solid -outline #9900ffff -lineStyle solid -lineWidth 1 -reverse_tone 0 
+layer configure 6:0 -name METAL1 -fill #99ff6699 -pattern solid -outline #99ff6699 -lineStyle solid -lineWidth 1 -reverse_tone 0 
+gauge add {-3410 539 6201 539} PN2D
+rectangle -layer 1:0 {2500 439 -2500 639}
+rectangle -layer 1:0 {5500 439 3500 639}
+rectangle -layer 2:0 {3000 439 -3000 639}
+rectangle -layer 3:0 {2750 439 -2750 639}
+rectangle -layer 4:0 {5750 439 3250 639}
+rectangle -layer 5:0 {-1500 439 -2000 639}
+rectangle -layer 5:0 {2000 439 1500 639}
+rectangle -layer 5:0 {4750 439 4250 639}
+rectangle -layer 6:0 {-1000 439 -2500 639}
+rectangle -layer 6:0 {2500 439 1000 639}
+rectangle -layer 6:0 {5250 439 3750 639}
+highlight add {-3139 -3121 -269 3129} PN3D
+polygon -layer 1:0 {-169 -2500 -169 2500 -2500 2500 -2500 -2500}
+polygon -layer 2:0 {-169 -3000 -169 3000 -3000 3000 -3000 -3000}
+polygon -layer 3:0 {-169 -2750 -169 2750 -2750 2750 -2750 -2750}
+polygon -layer 5:0 {-1500 -1750 -1500 -1250 -2000 -1250 -2000 -1750}
+polygon -layer 5:0 {-1500 -750 -1500 -250 -2000 -250 -2000 -750}
+polygon -layer 5:0 {-1500 250 -1500 750 -2000 750 -2000 250}
+polygon -layer 5:0 {-1500 1250 -1500 1750 -2000 1750 -2000 1250}
+polygon -layer 6:0 {-1000 -2250 -1000 2250 -2500 2250 -2500 -2250}
+highlight add {1839 49 4496 2421} PN3D2
+polygon -layer 1:0 {2500 -51 2500 2500 1739 2500 1739 -51}
+polygon -layer 1:0 {4596 -51 4596 2500 3500 2500 3500 -51}
+polygon -layer 2:0 {3000 -51 3000 2521 1739 2521 1739 -51}
+polygon -layer 3:0 {2750 -51 2750 2521 1739 2521 1739 -51}
+polygon -layer 4:0 {4596 -51 4596 2521 3250 2521 3250 -51}
+polygon -layer 4:0 {4596 -51 4596 2250 3750 2250 3750 -51}
+polygon -layer 5:0 {2000 1250 2000 1750 1739 1750 1739 1250}
+polygon -layer 5:0 {2000 250 2000 750 1739 750 1739 250}
+polygon -layer 5:0 {4596 1250 4596 1750 4250 1750 4250 1250}
+polygon -layer 5:0 {4596 250 4596 750 4250 750 4250 250}
+polygon -layer 6:0 {2500 -51 2500 2250 1739 2250 1739 -51}
+polygon -layer 6:0 {4596 -51 4596 2250 3750 2250 3750 -51}
+select clear
+catch {view default}

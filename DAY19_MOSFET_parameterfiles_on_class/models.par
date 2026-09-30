@@ -1,0 +1,394 @@
+* Copyright (c) 1994-2018 Synopsys, Inc.
+* This parameter file and the associated documentation are proprietary
+* to Synopsys, Inc.  This parameter file may only be used in accordance
+* with the terms and conditions of a written license agreement with
+* Synopsys, Inc.  All other use, reproduction, or distribution of this
+* parameter file is strictly prohibited.
+
+
+Material = "GaN" {
+
+Epsilon
+{ *  Ratio of the permittivities of material and vacuum
+
+  * epsilon() = epsilon
+	epsilon	= 9.5	# [1]
+}
+
+
+Epsilon_aniso
+{ *  Ratio of the permittivities of material and vacuum
+
+  * epsilon() = epsilon
+	epsilon	= 10.4	# [1]
+}
+
+
+ComplexRefractiveIndex
+{ *  Complex refractive index model: n_complex = n + i*k (unitless)
+  *  
+  *  with n = n_0 + delta_n_lambda + delta_n_T + delta_n_carr + delta_n_gain 
+  *       k = k_0 + delta_k_lambda             + delta_k_carr                
+  
+  * Base refractive index and extinction coefficient: 
+  *     n_0, k_0 
+  
+  * Wavelength dependence (real and imag): 
+  *     Formula 0: delta_n_lambda = Cn_lambda * lambda + Dn_lambda * lambda^2 
+  *                delta_k_lambda = Ck_lambda * lambda + Dk_lambda * lambda^2 
+  *     Formula 1: Read tabulated values 
+  *                NumericalTable (...)  
+  *     Formula 2: Read tabulated values from file 
+  *                NumericalTable = <string> 
+  
+  * Temperature dependence (real): 
+  *     delta_n_T = n_0 * ( Cn_temp * (T-Tpar)) 
+  
+  * Carrier dependence (real) 
+  *     delta_n_carr = - Cn_carr * (const.) * (n/m_e + p/m_h) 
+  
+  * Carrier dependence (imag) 
+  *     delta_k_carr = 1 / (4*PI) * (wavelength^Gamma_k_carr_e*Ck_carr_e*n + wavelength^Gamma_k_carr_h*Ck_carr_h*p) 
+  
+  * Gain dependence (real) 
+  *     lin: delta_n_gain = Cn_gain * ( (n+p)/(2 * Npar) - 1) 
+  *     log: delta_n_gain = Cn_gain * log ( (n+p)/(2 * Npar ) )
+	n_0	= 1	# [1]
+	k_0	= 0.0000e+00	# [1]
+	Cn_lambda	= 0.0000e+00	# [um^-1]
+	Dn_lambda	= 0.0000e+00	# [um^-2]
+	Ck_lambda	= 0.0000e+00	# [um^-1]
+	Dk_lambda	= 0.0000e+00	# [um^-2]
+	Cn_temp	= 2.0000e-04	# [K^-1]
+	Cn_carr	= 1	# [1]
+	Ck_carr	= 0.0000e+00 ,	0.0000e+00	# [cm^2]
+	Gamma_k_carr	= 1 ,	1	# [1]
+	Cn_gain	= 0.0000e+00	# [1]
+	Npar	= 1.0000e+18	# [cm^-3]
+        Formula = 0
+	Tpar	= 3.0000e+02	# [K]
+} 
+
+
+* SpectralConversion
+* { * Spectral Conversion Model
+*   No default model, user has to define.
+*   All wavelength parameters should be in nanometers.
+*   Choice of Analytic or NumericalTable selected in Physics section of region
+*  
+*   ConversionEfficiency = float     * ratio of absorbed photons that are reemitted.
+*   AbsorptionScaling = float        * scale absorption
+*   EmissionScaling = float          * scale emission
+*   Analytic (
+*     AbsorptionProfile = (
+*        Gaussian(lambda0 sigma peakvalue dc_offset lambda_range0 lambda_range1)
+*        Lorentzian(lambda0 width peakvalue dc_offset lambda_range0 lambda_range1)
+*        ...
+*     )
+*     EmissionProfile = (
+*        Gaussian(lambda0 sigma peakvalue dc_offset lambda_range0 lambda_range1)
+*        Lorentzian(lambda0 width peakvalue dc_offset lambda_range0 lambda_range1)
+*        ...
+*     )
+*   )
+*   NumericalTable (
+*     AbsorptionProfile = (
+*        lambda0 value0
+*        lambda1 value1
+*        ...
+*     )
+*     EmissionProfile = (
+*        lambda0 value0
+*        lambda1 value1
+*        ...
+*     )
+
+*   ConversionEfficiency = 1.0
+* }
+
+BandstructureParameters
+{
+  * Parameters for k.p bandstructure calculation:
+
+  * Zincblende crystals:
+  * Luttinger parameters gamma_1, gamma_2, gamma_3
+  * Spin-orbit split-off energy so
+  * Matrix element parameters for TE and TM modes ep_te and ep_tm
+
+  * Wurtzite crystals:
+  * Effective mass parameters A1, A2, A3, A4, A5, A6
+  * Spin-orbit split-off energy so
+  * Crystal-field split  energy cr
+  * Matrix element parameters for TE and TM modes ep_te and ep_tm
+  * 
+  * 
+
+	gamma_1	= 6.85	# [1]
+	gamma_2	= 2.1	# [1]
+	gamma_3	= 2.9	# [1]
+	so	= 0.014	# [eV]
+	ep_te	= 18.8	# [eV]
+	ep_tm	= 12.4	# [eV]
+	cr	= 0.019	# [eV]
+	A1	= -7.2400e+00	# [1]
+	A2	= -5.1000e-01	# [1]
+	A3	= 6.73	# [1]
+	A4	= -3.3600e+00	# [1]
+	A5	= -3.3500e+00	# [1]
+	A6	= -4.7200e+00	# [1]
+}
+
+QWStrain
+{
+  * Zincblende crystals:
+  *   Parameters: a_nu, a_c, b, C_12, C_11
+  *   StrainConstant eps (formula = 1) or lattice constant
+  *   a0 (formula = 2) for energy shift of quantum-well
+  *   subbands.
+  *   a0(T) = a0 + alpha (T-Tpar)
+
+  * Wurtzite crystals:
+  *   Parameters: a_c, D1, D2, D3, D4, C_13, C_33
+  *   Lattice constants a0 and c0 (formula 2 must be used)
+  *   a0(T) = a0 + alpha (T-Tpar)
+  *   c0(T) = c0 + alpha (T-Tpar)
+
+	  * Default formula	= 1	# [1]
+	eps	= 0.0000e+00	# [1]
+	a0	= 3.1890e-10	# [cm]
+	alpha	= 0.0000e+00	# [cm/K]
+	Tpar	= 3.0000e+02	# [K]
+	a_nu	= 0.19	# [eV]
+	a_c	= -4.0800e+00	# [eV]
+	b_shear	= 0.9163	# [eV]
+	c_11	= 11.879	# [1e-2 GPa]
+	c_12	= 5.376	# [1e-2 GPa]
+	d1	= -8.9000e-01	# [eV]
+	d2	= 4.27	# [eV]
+	d3	= 5.18	# [eV]
+	d4	= -2.5900e+00	# [eV]
+	c_13	= 1	# [1e-2 GPa]
+	c_33	= 3.92	# [1e-2 GPa]
+	c0	= 5.1850e-10	# [cm]
+}
+
+TransferredElectronEffect2:
+{ * Transferred Electron Effect 2:
+  *
+  *                mu_lowfield + mu1 * (F/E0)^alpha + vsat * F^(beta-1) / E1^beta
+  * mu_highfield = --------------------------------------------------------------
+  *                            1 + gamma * (F/E0)^alpha + (F/E1)^beta
+  *
+	mu1	= 0.0000e+00 ,	0.0000e+00	# [cm^2/Vs]
+	E0	= 2.2089e+05 ,	4.0000e+03	# [V/cm]
+	E1	= 2.2089e+05 ,	4.0000e+03	# [V/cm]
+	alpha	= 0.7857 ,	0.0000e+00	# [1]
+	beta	= 7.2044 ,	4	# [1]
+	gamma	= 6.1973 ,	0.0000e+00	# [1]
+}
+
+TransferredElectronEffect2_aniso:
+{ * Transferred Electron Effect 2:
+  *
+  *                mu_lowfield + mu1 * (F/E0)^alpha + vsat * F^(beta-1) / E1^beta
+  * mu_highfield = --------------------------------------------------------------
+  *                            1 + gamma * (F/E0)^alpha + (F/E1)^beta
+  *
+	mu1	= 0.0000e+00 ,	0.0000e+00	# [cm^2/Vs]
+	E0	= 2.2089e+05 ,	4.0000e+03	# [V/cm]
+	E1	= 2.2089e+05 ,	4.0000e+03	# [V/cm]
+	alpha	= 0.7857 ,	0.0000e+00	# [1]
+	beta	= 7.2044 ,	4	# [1]
+	gamma	= 6.1973 ,	0.0000e+00	# [1]
+}
+
+PooleFrenkel
+{ * TrapXsection = Xsec0*(1+Gpf) 
+  * Gpf = (1+(a-1)*exp(a))/a^2-0.5 
+  * where 
+  *       a = [(1/kT)*(q^3*F/des_n_Constants::pi/e0/epsPF)^0.5]^a_power, 
+  *       F is the electric field. 
+	epsPF	= 9.5 ,	9.5	# [1]
+	a_power	= 1 ,	1	# [1]
+}
+
+Piezoelectric_Polarization
+{ * The 'strain' model computes the polarization vector as follows:
+  * 
+  *   [P_x]   [psp_x                                     ]
+  *   [P_y] = [psp_y                                     ]
+  *   [P_z]   [psp_z + 2*d31*strain*(c11+c12-2*c13^2/c33)] (Formula 1)
+  *   [P_z]   [psp_z + 2*strain*(e31 - e33*c13/c33)      ] (Formula 2)
+  * 
+  *   strain = (1-relax)*(a0-a)/a
+  * 
+  * The 'stress' model computes the polarization vector as follows:
+  * 
+  *   [P_x]   [psp_x]   [d11 d12 d13 d14 d15 d16]   [stress_XX]
+  *   [P_y] = [psp_y] + [d21 d22 d23 d24 d25 d26] * [stress_YY]
+  *   [P_z]   [psp_z]   [d31 d32 d33 d34 d35 d36]   [stress_ZZ]
+  *                                                 [stress_YZ]
+  *                                                 [stress_XZ]
+  *                                                 [stress_XY]
+  * 
+  * The Poisson equation is:
+  * 
+  *   div(eps*grad(phi)) = -ro + activation*div(P),
+  *   where P = (P_x,P_y,P_z) - polarization vector
+  * 
+  * Parameters:
+  * 
+  *   activation: non negative real calibration parameter
+  *               to scale the polarization charge [1], 
+  *               this value can be set in a 'Physics' section of input file 
+  * 
+  *   [psp_x]: spontaneous polarization vector,
+  *   [psp_y]  defined in crystal system [C/cm^2]
+  *   [psp_z]
+  * 
+  *   c11, c12, c13, c33: stiffness constants,
+  *                       defined in crystal system [Pa]
+  * 
+  *   e31, e33: strain-charge piezoelectric coefficients,
+  *             defined in crystal system [C/cm^2]
+  * 
+  *   a0: strained lattice constant [Angstrem]
+  *   a: unstrained lattice constant [Angstrem]
+  *   relax: relaxation parameter [1]
+  * 
+  *   d11 ... d36: piezoelectric coefficients,
+  *                defined in crystal system [cm/V]
+  * 
+  * Fields:
+  * 
+  *   [stress_XX]: stress tensor,
+  *   [stress_YY]  defined in stress system [Pa]
+  *   [stress_ZZ]
+  *   [stress_YZ]
+  *   [stress_XZ]
+  *   [stress_XY]
+  * 
+  *   [P_x]: polarization vector,
+  *   [P_y]  defined in simulation system [C/cm^2]
+  *   [P_z]
+  * 
+  * Coordinate systems:
+  * 
+  *   The simulation system is defined relative to the crystal
+  *   system.  For example:
+  * 
+  *     LatticeParameters {
+  *       X = (1, 0,  0)
+  *       Y = (0, 0, -1)
+  *     }
+  * 
+  *   The stress coordinate system is defined relative to the simulation
+  *   system.  For example:
+  * 
+  *     Physics {
+  *       Piezo (
+  *         OriKddX = (-0.96  0.28  0)
+  *         OriKddY = ( 0.28  0.96  0)
+  *         Stress = (1e9  2e9  3e9  4e9  5e9  6e9)  # [Pa]
+  *       )
+  *     }
+  * 
+  *   To compute the polarization vector, the stress tensor is first
+  *   transformed from the stress system to the crystal system.  Then
+  *   the polarization vector is evaluated according to the 'strain' or
+  *   'stress' model above.  Finally, the polarization vector is transformed
+  *   from the crystal system to the simulation system.
+  * 
+  * piezoelectric coefficients:
+	d11	= 0.0000e+00	# [cm/V]
+	d12	= 0.0000e+00	# [cm/V]
+	d13	= 0.0000e+00	# [cm/V]
+	d14	= 0.0000e+00	# [cm/V]
+	d15	= -2.9000e-10	# [cm/V]
+	d16	= 0.0000e+00	# [cm/V]
+	d21	= 0.0000e+00	# [cm/V]
+	d22	= 0.0000e+00	# [cm/V]
+	d23	= 0.0000e+00	# [cm/V]
+	d24	= -2.9000e-10	# [cm/V]
+	d25	= 0.0000e+00	# [cm/V]
+	d26	= 0.0000e+00	# [cm/V]
+	d31	= -1.4000e-10	# [cm/V]
+	d32	= -1.4000e-10	# [cm/V]
+	d33	= 2.5000e-10	# [cm/V]
+	d34	= 0.0000e+00	# [cm/V]
+	d35	= 0.0000e+00	# [cm/V]
+	d36	= 0.0000e+00	# [cm/V]
+  * 
+  * spontaneous polarization:
+	psp_x	= 0.0000e+00	# [C/cm^2]
+	psp_y	= 0.0000e+00	# [C/cm^2]
+	psp_z	= -2.9000e-06	# [C/cm^2]
+  * 
+	Formula	= 1	# [1]
+  * 
+  * stiffness constants:
+	c11	= 3.9000e+11	# [Pa]
+	c12	= 1.4500e+11	# [Pa]
+	c13	= 1.0600e+11	# [Pa]
+	c14	= 0.0000e+00	# [Pa]
+	c15	= 0.0000e+00	# [Pa]
+	c16	= 0.0000e+00	# [Pa]
+	c21	= 0.0000e+00	# [Pa]
+	c22	= 0.0000e+00	# [Pa]
+	c23	= 0.0000e+00	# [Pa]
+	c24	= 0.0000e+00	# [Pa]
+	c25	= 0.0000e+00	# [Pa]
+	c26	= 0.0000e+00	# [Pa]
+	c31	= 0.0000e+00	# [Pa]
+	c32	= 0.0000e+00	# [Pa]
+	c33	= 3.9800e+11	# [Pa]
+	c34	= 0.0000e+00	# [Pa]
+	c35	= 0.0000e+00	# [Pa]
+	c36	= 0.0000e+00	# [Pa]
+	c41	= 0.0000e+00	# [Pa]
+	c42	= 0.0000e+00	# [Pa]
+	c43	= 0.0000e+00	# [Pa]
+	c44	= 0.0000e+00	# [Pa]
+	c45	= 0.0000e+00	# [Pa]
+	c46	= 0.0000e+00	# [Pa]
+	c51	= 0.0000e+00	# [Pa]
+	c52	= 0.0000e+00	# [Pa]
+	c53	= 0.0000e+00	# [Pa]
+	c54	= 0.0000e+00	# [Pa]
+	c55	= 0.0000e+00	# [Pa]
+	c56	= 0.0000e+00	# [Pa]
+	c61	= 0.0000e+00	# [Pa]
+	c62	= 0.0000e+00	# [Pa]
+	c63	= 0.0000e+00	# [Pa]
+	c64	= 0.0000e+00	# [Pa]
+	c65	= 0.0000e+00	# [Pa]
+	c66	= 0.0000e+00	# [Pa]
+  * 
+  * strain-charge piezoelectric coefficients:
+	e11	= 0.0000e+00	# [C/cm^2]
+	e12	= 0.0000e+00	# [C/cm^2]
+	e13	= 0.0000e+00	# [C/cm^2]
+	e14	= 0.0000e+00	# [C/cm^2]
+	e15	= 0.0000e+00	# [C/cm^2]
+	e16	= 0.0000e+00	# [C/cm^2]
+	e21	= 0.0000e+00	# [C/cm^2]
+	e22	= 0.0000e+00	# [C/cm^2]
+	e23	= 0.0000e+00	# [C/cm^2]
+	e24	= 0.0000e+00	# [C/cm^2]
+	e25	= 0.0000e+00	# [C/cm^2]
+	e26	= 0.0000e+00	# [C/cm^2]
+	e31	= -3.5000e-05	# [C/cm^2]
+	e32	= 0.0000e+00	# [C/cm^2]
+	e33	= 1.2700e-04	# [C/cm^2]
+	e34	= 0.0000e+00	# [C/cm^2]
+	e35	= 0.0000e+00	# [C/cm^2]
+	e36	= 0.0000e+00	# [C/cm^2]
+  * 
+  * strain parameters:
+	a0	= 3.189	# [Angstrem]
+	a	= 3.189	# [Angstrem]
+	relax	= 0.1	# [1]
+}
+
+
+}

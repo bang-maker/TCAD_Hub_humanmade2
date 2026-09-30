@@ -1,0 +1,101 @@
+
+
+Material="Ga2O3_my"{
+
+	Bandgap
+	{ * Eg = Eg0 + dEg0 + alpha Tpar^2 / (beta + Tpar) - alpha T^2 / (beta + T)
+	  * dEg0(<bgn_model_name>) is a band gap correction term.  It is used together with 
+	  * an appropriate BGN model, if this BGN model is chosen in Physics section 
+	  * Parameter 'Tpar' specifies the value of lattice 
+	  * temperature, at which parameters below are defined
+	  * Chi0 is electron affinity.
+		Chi0	= 4.0 # [eV], [Lay01] 
+		* ?Bgn2Chi	= 0.5	# [1] 
+		Eg0	= 4.6	# [eV], [Changed!!!]
+		Tpar	= 3.0000e+02	# [K] 
+			* no temperature support for now.
+		alpha   = 0.0
+		beta    = 0.0
+	}
+
+	
+	eDOSMass
+	{
+	  * For effective mass specificatition Formula1 (me approximation):
+	  * or Formula2 (Nc300) can be used :
+		Formula	= 2	# [1]
+	  * Formula2:
+	  * me/m0 = 0.28 = ((Nc300)/2.5094e19)^(2/3)
+	  * Nc(T) = (Nc300)*((T/300))^3/2 
+		* this value is reverse-calculated based on me = 0.28m0 (isotropic) [Janowitz11]
+		Nc300 = 3.7180e+18 # [300K]
+	}
+	#hDOSMass
+	
+	Epsilon
+	  {
+		* Ratio of the permittivities of material and vacuum
+		* epsilon() = epsilon
+		* Other values: 9.9-10.2 [Peelaers10], 13.6 [Lee06]
+	
+		epsilon = 10.0 # [Higashiwaki16]
+	
+	  }
+	  
+	  #Scharfetter  {}
+	  
+	  ConstantMobility:
+		{ * mu_const = mumax (T/T0)^(-Exponent)
+				* no temperature support for now.
+				* no hole support for now.
+			mumax	= 360 ,	1e-6	# [cm^2/(Vs)] [Higashiwaki16] no data for hole
+			Exponent	= 0.0 ,	0.0 # NO DATA
+		}
+		
+		vanOverstraetendeMan * Impact Ionization:
+		{ * G_impact = alpha_n n v_drift_n  +  alpha_p p v_drift_p
+		  * with alpha = gamma a  exp(-b gamma/E) for E<E0 (low) and E>E0 (high)
+		  *  with gamma = tanh(hbarOmega/(2kT0)) / tanh(hbarOmega/(2kT))
+		  * no data for holes. No data for E0 and hbaromega
+		  * Electron data are for z-direction from [Ghosh17]. See Fig. 1 from [Ghosh 17]
+		  * For x-direction, ax=7.9E+05/cm, bx=2.92E+07V/cm
+			a(low)	= 7.0600e+05 ,	7.0600e+05	# [1/cm] (Use electron data for holes)
+			a(high)	= 7.0600e+05 ,	7.0600e+05	# [1/cm]
+			b(low)	= 2.1000e+07 ,	2.1000e+07	# [V/cm]
+			b(high)	= 2.1000e+07 ,	2.1000e+07	# [V/cm]
+			E0	= 4.0000e+05 ,	4.0000e+05	# [V/cm]
+			hbarOmega	= 0.063 ,	0.063	# [eV] (Use silicon data)
+		}
+	 
+}
+
+
+Material="Al2O3_my" {
+
+	Epsilon
+	  {
+		* Ratio of the permittivities of material and vacuum
+		epsilon = 8.6
+	
+	  }	
+
+	 Bandgap
+		{ * Eg = Eg0 + dEg0 + alpha Tpar^2 / (beta + Tpar) - alpha T^2 / (beta + T)
+		  * dEg0(<bgn_model_name>) is a band gap correction term.  It is used together with 
+		  * an appropriate BGN model, if this BGN model is chosen in Physics section 
+		  * Parameter 'Tpar' specifies the value of lattice 
+		  * temperature, at which parameters below are defined
+		  * Chi0 is electron affinity.
+			Chi0	= 2.5 # [eV]
+			* ?Bgn2Chi	= 0.5	#
+			Eg0	= 6.8	# [eV]
+			Tpar	= 3.0000e+02	# [K] 
+				* no temperature support for now.
+				alpha   = 0.0
+				beta    = 0.0
+		}
+  
+ 
+}
+
+

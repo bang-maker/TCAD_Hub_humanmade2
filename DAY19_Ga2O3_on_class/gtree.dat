@@ -1,0 +1,61 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Sun Nov 28 07:42:49 2021
+
+# --- simulation flow
+MOS sde "" {}
+MOS BodyDop "3e18" {3e18}
+CV sdevice "" {}
+CV Vdd "8" {12}
+CV barrier "4.3" {4.3}
+Plot_CV svisual "" {}
+MOSFET sde "" {}
+MOSFET BodyDop1 "3.5e17" {2.0e17}
+MOSFET SDDop1 "3e19" {3e19}
+MOSFET Tsub1 "0.2" {3.0}
+MOSFET SubDop1 "1e13" {1e13}
+IdVg sdevice "" {}
+IdVg Vg "-15" {-30}
+IdVg Vd "0.02" {25}
+IdVg trap_conc "1e20" {1e20}
+IdVg rhoc "4.6e-6" {8.1e-6}
+Plot_IdVg svisual "" {}
+BV sdevice "" {}
+BV Vgmin "-20.0" {-14.0 -18.0}
+Plot_BV svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default BodyDop ""
+scenario default Vdd ""
+scenario default barrier ""
+scenario default BodyDop1 ""
+scenario default SDDop1 ""
+scenario default Tsub1 ""
+scenario default SubDop1 ""
+scenario default Vg ""
+scenario default Vd ""
+scenario default trap_conc ""
+scenario default rhoc ""
+scenario default Vgmin ""
+# --- simulation tree
+0 2 0 {} {default} 0
+1 1 2 {3e18} {default} 0
+2 4 1 {} {default} 0
+3 5 4 {12} {default} 0
+4 3 5 {4.3} {default} 0
+5 6 3 {} {default} 0
+6 9 6 {} {default} 0
+7 10 9 {2.0e17} {default} 0
+8 11 10 {3e19} {default} 0
+9 12 11 {3.0} {default} 0
+10 7 12 {1e13} {default} 0
+11 13 7 {} {default} 0
+12 14 13 {-30} {default} 0
+13 15 14 {25} {default} 0
+14 16 15 {1e20} {default} 0
+15 8 16 {8.1e-6} {default} 0
+16 17 8 {} {default} 0
+17 20 17 {} {default} 0
+18 18 20 {-14.0} {default} 0
+19 19 18 {} {default} 0
+18 21 20 {-18.0} {default} 0
+19 22 21 {} {default} 0

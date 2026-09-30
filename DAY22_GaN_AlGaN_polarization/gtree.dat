@@ -1,0 +1,55 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Sun Dec 12 08:20:50 2021
+
+# --- simulation flow
+GaN_AlGaN sde "" {}
+GaN_AlGaN t_barrier "0.05" {0.05 0.1}
+GaN_AlGaN x_barrier "0.25" {0.25 0.5 0.75}
+sdevice sdevice "" {}
+sdevice pz "0" {0 1}
+svisual svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default t_barrier ""
+scenario default x_barrier ""
+scenario default pz ""
+# --- simulation tree
+0 9 0 {} {default} 0
+1 18 9 {0.05} {default} 0
+2 1 18 {0.25} {default} 0
+3 3 1 {} {default} 0
+4 2 3 {0} {default} 0
+5 5 2 {} {default} 0
+4 4 3 {1} {default} 0
+5 6 4 {} {default} 0
+2 20 18 {0.5} {default} 0
+3 21 20 {} {default} 0
+4 22 21 {0} {default} 0
+5 23 22 {} {default} 0
+4 25 21 {1} {default} 0
+5 26 25 {} {default} 0
+2 36 18 {0.75} {default} 0
+3 37 36 {} {default} 0
+4 38 37 {0} {default} 0
+5 39 38 {} {default} 0
+4 41 37 {1} {default} 0
+5 42 41 {} {default} 0
+1 19 9 {0.1} {default} 0
+2 10 19 {0.25} {default} 0
+3 11 10 {} {default} 0
+4 12 11 {0} {default} 0
+5 13 12 {} {default} 0
+4 15 11 {1} {default} 0
+5 16 15 {} {default} 0
+2 28 19 {0.5} {default} 0
+3 29 28 {} {default} 0
+4 30 29 {0} {default} 0
+5 31 30 {} {default} 0
+4 33 29 {1} {default} 0
+5 34 33 {} {default} 0
+2 44 19 {0.75} {default} 0
+3 45 44 {} {default} 0
+4 46 45 {0} {default} 0
+5 47 46 {} {default} 0
+4 49 45 {1} {default} 0
+5 50 49 {} {default} 0

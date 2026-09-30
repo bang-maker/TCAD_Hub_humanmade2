@@ -1,0 +1,21 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Sat Nov 20 05:27:52 2021
+
+# --- simulation flow
+MOSFET sde "" {}
+MOSFET type "NMOS" {NMOS}
+MOSFET Lgate "0.3" {0.3}
+IdVg sdevice "" {}
+DrawIdVg svisual "" {}
+DrawTraps svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default type ""
+scenario default Lgate ""
+# --- simulation tree
+0 1 0 {} {default} 0
+1 2 1 {NMOS} {default} 0
+2 3 2 {0.3} {default} 0
+3 8 3 {} {default} 0
+4 6 8 {} {default} 0
+5 7 6 {} {default} 0

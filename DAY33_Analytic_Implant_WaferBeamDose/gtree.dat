@@ -1,0 +1,21 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Tue Mar 29 08:30:40 2022
+
+# --- simulation flow
+Implant sprocess "--xml" {}
+Implant DoseSetting "BeamDose" {BeamDose WaferDose}
+Implant tilt "0" {0 15 20}
+# --- variables
+# --- scenarios and parameter specs
+scenario default DoseSetting ""
+scenario default tilt ""
+# --- simulation tree
+0 2 0 {} {default} 0
+1 4 2 {BeamDose} {default} 0
+2 1 4 {0} {default} 0
+2 6 4 {15} {default} 0
+2 8 4 {20} {default} 0
+1 5 2 {WaferDose} {default} 0
+2 3 5 {0} {default} 0
+2 7 5 {15} {default} 0
+2 9 5 {20} {default} 0

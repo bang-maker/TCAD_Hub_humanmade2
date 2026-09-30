@@ -1,0 +1,83 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Sun Oct 24 06:16:41 2021
+
+# --- simulation flow
+MOSFET sde "" {}
+MOSFET type "NMOS" {NMOS PMOS}
+MOSFET Lgate "0.3" {0.3 0.4 0.6}
+MOSFET Tox "5" {3 4 5 6 7}
+IdVg sdevice "" {}
+DrawIdVg svisual "" {}
+PlotVti sdevice "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default type ""
+scenario default Lgate ""
+scenario default Tox ""
+scenario NMOS_var_Lgate type ""
+scenario NMOS_var_Lgate Lgate ""
+scenario NMOS_var_Lgate Tox ""
+scenario NMOS_var_tox_Lgate03 type ""
+scenario NMOS_var_tox_Lgate03 Lgate ""
+scenario NMOS_var_tox_Lgate03 Tox ""
+# --- simulation tree
+0 1 0 {} {default NMOS_var_Lgate NMOS_var_tox_Lgate03} 0
+1 2 1 {NMOS} {default NMOS_var_Lgate NMOS_var_tox_Lgate03} 0
+2 178 2 {0.3} {NMOS_var_Lgate NMOS_var_tox_Lgate03} 0
+3 188 178 {3} {NMOS_var_tox_Lgate03} 0
+4 189 188 {} {NMOS_var_tox_Lgate03} 0
+5 190 189 {} {NMOS_var_tox_Lgate03} 0
+6 191 190 {} {NMOS_var_tox_Lgate03} 0
+3 192 178 {4} {NMOS_var_tox_Lgate03} 0
+4 193 192 {} {NMOS_var_tox_Lgate03} 0
+5 194 193 {} {NMOS_var_tox_Lgate03} 0
+6 195 194 {} {NMOS_var_tox_Lgate03} 0
+3 179 178 {5} {NMOS_var_Lgate NMOS_var_tox_Lgate03} 0
+4 180 179 {} {NMOS_var_Lgate NMOS_var_tox_Lgate03} 0
+5 181 180 {} {NMOS_var_Lgate NMOS_var_tox_Lgate03} 0
+6 182 181 {} {NMOS_var_Lgate NMOS_var_tox_Lgate03} 0
+3 196 178 {6} {NMOS_var_tox_Lgate03} 0
+4 197 196 {} {NMOS_var_tox_Lgate03} 0
+5 198 197 {} {NMOS_var_tox_Lgate03} 0
+6 199 198 {} {NMOS_var_tox_Lgate03} 0
+3 200 178 {7} {NMOS_var_tox_Lgate03} 0
+4 201 200 {} {NMOS_var_tox_Lgate03} 0
+5 202 201 {} {NMOS_var_tox_Lgate03} 0
+6 203 202 {} {NMOS_var_tox_Lgate03} 0
+2 183 2 {0.4} {default NMOS_var_Lgate} 0
+3 209 183 {3} {default} 0
+4 210 209 {} {default} 0
+5 211 210 {} {default} 0
+6 212 211 {} {default} 0
+3 213 183 {4} {default} 0
+4 214 213 {} {default} 0
+5 215 214 {} {default} 0
+6 216 215 {} {default} 0
+3 184 183 {5} {default NMOS_var_Lgate} 0
+4 185 184 {} {default NMOS_var_Lgate} 0
+5 186 185 {} {default NMOS_var_Lgate} 0
+6 187 186 {} {default NMOS_var_Lgate} 0
+3 217 183 {6} {default} 0
+4 218 217 {} {default} 0
+5 219 218 {} {default} 0
+6 220 219 {} {default} 0
+3 221 183 {7} {default} 0
+4 222 221 {} {default} 0
+5 223 222 {} {default} 0
+6 224 223 {} {default} 0
+2 63 2 {0.6} {default NMOS_var_Lgate} 0
+3 7 63 {5} {default NMOS_var_Lgate} 0
+4 15 7 {} {default NMOS_var_Lgate} 0
+5 55 15 {} {default NMOS_var_Lgate} 0
+6 124 55 {} {default NMOS_var_Lgate} 0
+1 172 1 {PMOS} {default} 0
+2 204 172 {0.4} {default} 0
+3 205 204 {5} {default} 0
+4 206 205 {} {default} 0
+5 207 206 {} {default} 0
+6 208 207 {} {default} 0
+2 173 172 {0.6} {default} 0
+3 174 173 {5} {default} 0
+4 175 174 {} {default} 0
+5 176 175 {} {default} 0
+6 177 176 {} {default} 0

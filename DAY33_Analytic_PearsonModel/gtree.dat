@@ -1,0 +1,124 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Tue Mar 29 09:11:52 2022
+
+# --- simulation flow
+Implant sprocess "--xml" {}
+Implant energy "120" {120 300}
+Implant rp "0.3" {0.3 0.4 0.5 0.6}
+Implant stdev "0.08" {0.08 0.1 0.12 0.2}
+Implant gamma "-0.7" {-0.7 -0.6 -0.5 -0.8}
+Implant beta "3.5" {3.5 4.2 4.8}
+Draw svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default energy ""
+scenario default rp ""
+scenario default stdev ""
+scenario default gamma ""
+scenario default beta ""
+scenario rp energy ""
+scenario rp rp ""
+scenario rp stdev ""
+scenario rp gamma ""
+scenario rp beta ""
+scenario stdev energy ""
+scenario stdev rp ""
+scenario stdev stdev ""
+scenario stdev gamma ""
+scenario stdev beta ""
+scenario gmma energy ""
+scenario gmma rp ""
+scenario gmma stdev ""
+scenario gmma gamma ""
+scenario gmma beta ""
+scenario beta energy ""
+scenario beta rp ""
+scenario beta stdev ""
+scenario beta gamma ""
+scenario beta beta ""
+# --- simulation tree
+0 1 0 {} {gmma default beta stdev rp} 0
+1 2 1 {120} {gmma default beta stdev rp} 0
+2 3 2 {0.3} {gmma default beta stdev rp} 0
+3 6 3 {0.08} {gmma default beta stdev rp} 0
+4 15 6 {-0.7} {gmma default beta stdev rp} 0
+5 42 15 {3.5} {gmma default beta stdev rp} 0
+6 123 42 {} {gmma default beta stdev rp} 0
+5 43 15 {4.2} {default beta} 0
+6 124 43 {} {default beta} 0
+5 230 15 {4.8} {beta} 0
+6 231 230 {} {beta} 0
+4 16 6 {-0.6} {default} 0
+5 45 16 {3.5} {default} 0
+6 126 45 {} {default} 0
+5 46 16 {4.2} {default} 0
+6 127 46 {} {default} 0
+4 17 6 {-0.5} {gmma default} 0
+5 48 17 {3.5} {gmma default} 0
+6 129 48 {} {gmma default} 0
+5 49 17 {4.2} {default} 0
+6 130 49 {} {default} 0
+4 227 6 {-0.8} {gmma} 0
+5 228 227 {3.5} {gmma} 0
+6 229 228 {} {gmma} 0
+3 7 3 {0.1} {default stdev} 0
+4 18 7 {-0.7} {default stdev} 0
+5 51 18 {3.5} {default stdev} 0
+6 132 51 {} {default stdev} 0
+5 52 18 {4.2} {default} 0
+6 133 52 {} {default} 0
+4 19 7 {-0.6} {default} 0
+5 54 19 {3.5} {default} 0
+6 135 54 {} {default} 0
+5 55 19 {4.2} {default} 0
+6 136 55 {} {default} 0
+4 20 7 {-0.5} {default} 0
+5 57 20 {3.5} {default} 0
+6 138 57 {} {default} 0
+5 58 20 {4.2} {default} 0
+6 139 58 {} {default} 0
+3 8 3 {0.12} {default} 0
+4 21 8 {-0.7} {default} 0
+5 60 21 {3.5} {default} 0
+6 141 60 {} {default} 0
+5 61 21 {4.2} {default} 0
+6 142 61 {} {default} 0
+4 22 8 {-0.6} {default} 0
+5 63 22 {3.5} {default} 0
+6 144 63 {} {default} 0
+5 64 22 {4.2} {default} 0
+6 145 64 {} {default} 0
+4 23 8 {-0.5} {default} 0
+5 66 23 {3.5} {default} 0
+6 147 66 {} {default} 0
+5 67 23 {4.2} {default} 0
+6 148 67 {} {default} 0
+3 232 3 {0.2} {stdev} 0
+4 233 232 {-0.7} {stdev} 0
+5 234 233 {3.5} {stdev} 0
+6 235 234 {} {stdev} 0
+2 204 2 {0.4} {rp} 0
+3 205 204 {0.08} {rp} 0
+4 206 205 {-0.7} {rp} 0
+5 207 206 {3.5} {rp} 0
+6 208 207 {} {rp} 0
+2 209 2 {0.5} {rp} 0
+3 210 209 {0.08} {rp} 0
+4 211 210 {-0.7} {rp} 0
+5 212 211 {3.5} {rp} 0
+6 213 212 {} {rp} 0
+2 214 2 {0.6} {rp} 0
+3 215 214 {0.08} {rp} 0
+4 216 215 {-0.7} {rp} 0
+5 217 216 {3.5} {rp} 0
+6 218 217 {} {rp} 0
+1 236 1 {300} {beta} 0
+2 237 236 {0.3} {beta} 0
+3 238 237 {0.08} {beta} 0
+4 239 238 {-0.7} {beta} 0
+5 240 239 {3.5} {beta} 0
+6 241 240 {} {beta} 0
+5 242 239 {4.2} {beta} 0
+6 243 242 {} {beta} 0
+5 244 239 {4.8} {beta} 0
+6 245 244 {} {beta} 0

@@ -1,0 +1,101 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Mon Feb 21 05:23:50 2022
+
+# --- simulation flow
+BJT sprocess "--xml" {}
+BJT mesh_type "adaptive" {adaptive static}
+BJT NWELL "1" {1}
+BJT DRIVE "1" {1}
+BJT STI "1" {1}
+BJT BASE "1" {1}
+BJT EMITTER "1" {1}
+BJT NPplus "1" {1}
+BJT CONTACT "1" {1}
+BJT REMESH "1" {1}
+GummelPlot sdevice "" {}
+DrawGummelPlot svisual "" {}
+IcVce sdevice "" {}
+IcVce Ib "1e-5" {1e-5 9e-06 8e-06 7e-06 6e-06 5e-06 4e-06 3e-06 2e-06 1e-6 1e-8}
+DrawIcVce svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default mesh_type ""
+scenario default NWELL ""
+scenario default DRIVE ""
+scenario default STI ""
+scenario default BASE ""
+scenario default EMITTER ""
+scenario default NPplus ""
+scenario default CONTACT ""
+scenario default REMESH ""
+scenario default Ib ""
+# --- simulation tree
+0 38 0 {} {default} 0
+1 2 38 {adaptive} {default} 0
+2 3 2 {1} {default} 0
+3 4 3 {1} {default} 0
+4 5 4 {1} {default} 0
+5 6 5 {1} {default} 0
+6 7 6 {1} {default} 0
+7 8 7 {1} {default} 0
+8 9 8 {1} {default} 0
+9 1 9 {1} {default} 0
+10 10 1 {} {default} 0
+11 11 10 {} {default} 0
+12 15 11 {} {default} 0
+13 14 15 {1e-5} {default} 0
+14 13 14 {} {default} 0
+13 32 15 {9e-06} {default} 0
+14 33 32 {} {default} 0
+13 30 15 {8e-06} {default} 0
+14 31 30 {} {default} 0
+13 28 15 {7e-06} {default} 0
+14 29 28 {} {default} 0
+13 26 15 {6e-06} {default} 0
+14 27 26 {} {default} 0
+13 24 15 {5e-06} {default} 0
+14 25 24 {} {default} 0
+13 22 15 {4e-06} {default} 0
+14 23 22 {} {default} 0
+13 20 15 {3e-06} {default} 0
+14 21 20 {} {default} 0
+13 18 15 {2e-06} {default} 0
+14 19 18 {} {default} 0
+13 16 15 {1e-6} {default} 0
+14 17 16 {} {default} 0
+13 36 15 {1e-8} {default} 0
+14 37 36 {} {default} 0
+1 39 38 {static} {default} 0
+2 40 39 {1} {default} 0
+3 41 40 {1} {default} 0
+4 42 41 {1} {default} 0
+5 43 42 {1} {default} 0
+6 44 43 {1} {default} 0
+7 45 44 {1} {default} 0
+8 46 45 {1} {default} 0
+9 47 46 {1} {default} 0
+10 48 47 {} {default} 0
+11 49 48 {} {default} 0
+12 50 49 {} {default} 0
+13 51 50 {1e-5} {default} 0
+14 52 51 {} {default} 0
+13 53 50 {9e-06} {default} 0
+14 54 53 {} {default} 0
+13 55 50 {8e-06} {default} 0
+14 56 55 {} {default} 0
+13 57 50 {7e-06} {default} 0
+14 58 57 {} {default} 0
+13 59 50 {6e-06} {default} 0
+14 60 59 {} {default} 0
+13 61 50 {5e-06} {default} 0
+14 62 61 {} {default} 0
+13 63 50 {4e-06} {default} 0
+14 64 63 {} {default} 0
+13 65 50 {3e-06} {default} 0
+14 66 65 {} {default} 0
+13 67 50 {2e-06} {default} 0
+14 68 67 {} {default} 0
+13 69 50 {1e-6} {default} 0
+14 70 69 {} {default} 0
+13 71 50 {1e-8} {default} 0
+14 72 71 {} {default} 0

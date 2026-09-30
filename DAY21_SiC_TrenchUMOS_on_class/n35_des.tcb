@@ -1,0 +1,212 @@
+ 
+ 
+   set PULSE  "0 0 1.0e-8 10 [expr 20e-6+1.0e-8] 10 [expr 20e-6+2.0e-8] 0 1 0"
+   set RESIST "[expr 2.1*1e-3*350877.192982456]"
+   set TEMPF  "[expr 25+275]"
+
+puts $RESIST
+puts $TEMPF
+puts $TEMPF
+puts $TEMPF
+puts $TEMPF
+puts $PULSE
+
+ 
+ 
+   set PULSE  "0 0 1.0e-8 10 [expr 20e-6+1.0e-8] 10 [expr 20e-6+2.0e-8] 0 1 0"
+   set RESIST "[expr 2.1*1e-3*350877.192982456]"
+   set TEMPF  "[expr 25+275]"
+
+puts $RESIST
+puts $TEMPF
+puts $TEMPF
+puts $TEMPF
+puts $TEMPF
+puts $PULSE
+
+
+
+
+
+
+ 
+ 
+   set PULSE  "0 0 1.0e-8 10 [expr 20e-6+1.0e-8] 10 [expr 20e-6+2.0e-8] 0 1 0"
+   set RESIST "[expr 2.1*1e-3*350877.192982456]"
+   set TEMPF  "[expr 25+275]"
+
+puts $RESIST
+puts $TEMPF
+puts $TEMPF
+puts $TEMPF
+puts $TEMPF
+puts $PULSE
+
+ 
+ 
+   set PULSE  "0 0 1.0e-8 10 [expr 20e-6+1.0e-8] 10 [expr 20e-6+2.0e-8] 0 1 0"
+   set RESIST "[expr 2.1*1e-3*350877.192982456]"
+   set TEMPF  "[expr 25+275]"
+
+puts $RESIST
+puts $TEMPF
+puts $TEMPF
+puts $TEMPF
+puts $TEMPF
+puts $PULSE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+   set PULSE  "0 0 1.0e-8 10 [expr 20e-6+1.0e-8] 10 [expr 20e-6+2.0e-8] 0 1 0"
+   set RESIST "[expr 2.1*1e-3*350877.192982456]"
+   set TEMPF  "[expr 25+275]"
+
+puts $RESIST
+puts $TEMPF
+puts $TEMPF
+puts $TEMPF
+puts $TEMPF
+puts $PULSE
+
+ 
+ 
+   set PULSE  "0 0 1.0e-8 10 [expr 20e-6+1.0e-8] 10 [expr 20e-6+2.0e-8] 0 1 0"
+   set RESIST "[expr 2.1*1e-3*350877.192982456]"
+   set TEMPF  "[expr 25+275]"
+
+puts $RESIST
+puts $TEMPF
+puts $TEMPF
+puts $TEMPF
+puts $TEMPF
+puts $PULSE
+
+
+
+ 
+ 
+   set PULSE  "0 0 1.0e-8 10 [expr 20e-6+1.0e-8] 10 [expr 20e-6+2.0e-8] 0 1 0"
+   set RESIST "[expr 2.1*1e-3*350877.192982456]"
+   set TEMPF  "[expr 25+275]"
+
+puts $RESIST
+puts $TEMPF
+puts $TEMPF
+puts $TEMPF
+puts $TEMPF
+puts $PULSE
+
+ 
+ 
+   set PULSE  "0 0 1.0e-8 10 [expr 20e-6+1.0e-8] 10 [expr 20e-6+2.0e-8] 0 1 0"
+   set RESIST "[expr 2.1*1e-3*350877.192982456]"
+   set TEMPF  "[expr 25+275]"
+
+puts $RESIST
+puts $TEMPF
+puts $TEMPF
+puts $TEMPF
+puts $TEMPF
+puts $PULSE
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+   set PULSE  "0 0 1.0e-8 10 [expr 20e-6+1.0e-8] 10 [expr 20e-6+2.0e-8] 0 1 0"
+   set RESIST "[expr 2.1*1e-3*350877.192982456]"
+   set TEMPF  "[expr 25+275]"
+
+puts $RESIST
+puts $TEMPF
+puts $TEMPF
+puts $TEMPF
+puts $TEMPF
+puts $PULSE
+
+ 
+ 
+   set PULSE  "0 0 1.0e-8 10 [expr 20e-6+1.0e-8] 10 [expr 20e-6+2.0e-8] 0 1 0"
+   set RESIST "[expr 2.1*1e-3*350877.192982456]"
+   set TEMPF  "[expr 25+275]"
+
+puts $RESIST
+puts $TEMPF
+puts $TEMPF
+puts $TEMPF
+puts $TEMPF
+puts $PULSE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+   set PULSE  "0 0 1.0e-8 10 [expr 5e-6+1.0e-8] 10 [expr 5e-6+2.0e-8] 0 1 0"
+   set RESIST "[expr 2.1*1e-3*350877.192982456]"
+   set TEMPF  "[expr 25+275]"
+
+puts $RESIST
+puts $TEMPF
+puts $TEMPF
+puts $TEMPF
+puts $TEMPF
+puts $PULSE
+
+ 
+ 
+   set PULSE  "0 0 1.0e-8 10 [expr 5e-6+1.0e-8] 10 [expr 5e-6+2.0e-8] 0 1 0"
+   set RESIST "[expr 2.1*1e-3*350877.192982456]"
+   set TEMPF  "[expr 25+275]"
+
+puts $RESIST
+puts $TEMPF
+puts $TEMPF
+puts $TEMPF
+puts $TEMPF
+puts $PULSE
+
+
+
+
+
+
+

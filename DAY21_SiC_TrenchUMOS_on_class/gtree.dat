@@ -1,0 +1,84 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Sat Dec 11 09:41:13 2021
+
+# --- simulation flow
+UMOS sde "" {}
+UMOS area "1e6" {1e6}
+UMOS type "Conv" {GPMOS DTMOS}
+IdVg sdevice "" {}
+IdVg Vd "1" {5}
+DrawIdVg svisual "" {}
+IdVd sdevice "" {}
+DrawIdVd svisual "" {}
+BV sdevice "" {}
+BV BVgate "-3.0" {0}
+BV scale "1e4" {1e7}
+DrawBV svisual "" {}
+BodyDiodeIV sdevice "" {}
+DrawBodyDiodeIV svisual "" {}
+Qg sdevice "" {}
+Plot_Qg svisual "" {}
+SW1 sdevice "" {}
+SW1 Idc "200" {10}
+SW1 VgMax "10" {10}
+SW1 Rgsw "1.0" {1.0}
+SW1 Ldsw "10e-09" {10e-06}
+SW1 Vdc "600" {600}
+Plot_SW svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default area ""
+scenario default type ""
+scenario default Vd ""
+scenario default BVgate ""
+scenario default scale ""
+scenario default Idc ""
+scenario default VgMax ""
+scenario default Rgsw ""
+scenario default Ldsw ""
+scenario default Vdc ""
+# --- simulation tree
+0 1 0 {} {default} 0
+1 2 1 {1e6} {default} 0
+2 3 2 {GPMOS} {default} 0
+3 5 3 {} {default} 0
+4 7 5 {5} {default} 0
+5 9 7 {} {default} 0
+6 11 9 {} {default} 0
+7 13 11 {} {default} 0
+8 15 13 {} {default} 0
+9 17 15 {0} {default} 0
+10 19 17 {1e7} {default} 0
+11 21 19 {} {default} 0
+12 27 21 {} {default} 0
+13 29 27 {} {default} 0
+14 31 29 {} {default} 0
+15 33 31 {} {default} 0
+16 101 33 {} {default} 0
+17 232 101 {10} {default} 0
+18 117 232 {10} {default} 0
+19 125 117 {1.0} {default} 0
+20 133 125 {10e-06} {default} 0
+21 93 133 {600} {default} 0
+22 165 93 {} {default} 0
+2 212 2 {DTMOS} {default} 0
+3 213 212 {} {default} 0
+4 214 213 {5} {default} 0
+5 215 214 {} {default} 0
+6 216 215 {} {default} 0
+7 217 216 {} {default} 0
+8 218 217 {} {default} 0
+9 219 218 {0} {default} 0
+10 220 219 {1e7} {default} 0
+11 221 220 {} {default} 0
+12 222 221 {} {default} 0
+13 223 222 {} {default} 0
+14 224 223 {} {default} 0
+15 225 224 {} {default} 0
+16 226 225 {} {default} 0
+17 233 226 {10} {default} 0
+18 227 233 {10} {default} 0
+19 228 227 {1.0} {default} 0
+20 229 228 {10e-06} {default} 0
+21 230 229 {600} {default} 0
+22 231 230 {} {default} 0

@@ -1,0 +1,85 @@
+material = "Silicon" {
+
+Band2BandTunneling  
+{ * See Sentaurus Device manual `Band-To-Band Tunneling' 
+	A	= 8.9770e+20	# [cm / (s V^2)]
+	B	= 2.1466e+07	# [eV^(-3/2) V/cm]
+	hbarOmega	= 0.0186	# [eV]
+
+  * Traditional models for the following keywords in input file:
+  * Band2Band(E1)  : A1*E*exp(-B1/E)
+  * Band2Band(E1_5): A1_5*E^1.5*exp(-B1_5/E)
+  * Band2Band(E2)  : A2*E^2*exp(-B2/E)
+	A1	= 1.1000e+27	# [1/cm/sec/V]
+	B1	= 2.1300e+07	# [V/cm]
+	A1_5	= 1.9000e+24	# [1/cm/sec/V^1.5]
+	B1_5	= 2.1900e+07	# [V/cm]
+	A2	= 3.5000e+21	# [1/cm/sec/V^2]
+	B2	= 2.2500e+07	# [V/cm]
+
+  * Hurkx model for the following keywords in input file:
+  * Band2Band(Hurkx)  : -Agen*D*(E/E0)^Pgen*exp(-Bgen*(Eg/Eg300)^1.5/E) if D < 0
+  *                     -Arec*D*(E/E0)^Prec*exp(-Brec*(Eg/Eg300)^1.5/E) if D > 0
+  *                     D = (n*p-ni^2)/(n+ni)/(p+ni)*(1-|alpha|)+alpha, E0 = 1 V/cm
+  *                     So, if alpha = 0, it's original Hurkx model,
+  *                         if alpha = -1, it's only generation,
+  *                         if alpha = +1, it's only recombination.
+	Agen	= 3.5000e+21	# [1/cm^3/sec]
+	Bgen	= 2.2500e+07	# [V/cm]
+	Pgen	= 2	# [1]
+	Arec	= 3.5000e+21	# [1/cm^3/sec]
+	Brec	= 2.2500e+07	# [V/cm]
+	Prec	= 2	# [1]
+	alpha	= 0.0000e+00	# [1]
+
+  * nonlocal B2B models for the following keywords in command file:
+  * Band2Band(Model=NonlocalPath1) : Nonlocal B2B tunneling with single transition process   using the first tunneling path
+  * Band2Band(Model=NonlocalPath2) : Nonlocal B2B tunneling with two    transition processes using the first and second tunneling paths
+  * Band2Band(Model=NonlocalPath3) : Nonlocal B2B tunneling with three  transition processes using the all three tunneling paths
+  * For the i-th nonlocal B2B process (i=1, 2, or 3):
+  * Apathi : Prefactor Ad or Ap in the uniform field limit for the direct or indirect tunneling
+  * Bpathi : Exponent  Bd or Bp in the uniform field limit for the direct or indirect tunneling
+  * Dpathi : The conduction band offset D
+  * Ppathi : The phonon energy P
+  *          Note that the indirect tunneling process is assumed if P>0, and the direct tunneling process is assumed if P=0
+  * Rpathi : The ratio mv/mc. If Rpathi=0, it is automatically determined by
+  *          mv/mc = (1 + 2*mr)/(1 - 2*mr)
+  *          where mr=mc*mv/(mc+mv) is the reduced mass
+  * In the uniform field limit, the generation rate can be expressed by
+  * G = A * (F/F0)^2   * Exp(-B/F) for   direct tunneling
+  *   = A * (F/F0)^2.5 * Exp(-B/F) for indirect tunneling
+  * where
+  * Ad = g * mr^0.5 * (qF0)^2 / (36 * pi * h_bar^2 *E_T^0.5)
+  * Ap = g *(mc*mv)^1.5 * (1+2*N) * (qF0)^2.5 * Dop^2 / (2^7.75 * pi^2.5 * h_bar^2.5 * mr^1.25 * E_T^1.75 * rho * P)
+  * Bd = pi    * mr^0.5 * E_T^1.5 / (2 * h_bar * q)
+  * Bp = 2^2.5 * mr^0.5 * E_T^1.5 / (3 * h_bar * q)
+  * F0 = 1 V/cm, qF0 = 1 eV/cm, E_T = E_G + D
+  * From the above expression, the microscopic parameters such as mr, mc, and mv for the nonlocal B2B model are extracted internally
+	Apath1	= 4.0000e+16	# [1/cm^3/sec]
+	Bpath1	= 1.9000e+07	# [V/cm]
+	Dpath1	= 0.0000e+00	# [eV]
+	Ppath1	= 0.037	# [eV]
+	Rpath1	= 0.0000e+00	# [1]
+	Apath2	= 0.0000e+00	# [1/cm^3/sec]
+	Bpath2	= 0.0000e+00	# [V/cm]
+	Dpath2	= 0.0000e+00	# [eV]
+	Ppath2	= 0.0000e+00	# [eV]
+	Rpath2	= 0.0000e+00	# [1]
+	Apath3	= 0.0000e+00	# [1/cm^3/sec]
+	Bpath3	= 0.0000e+00	# [V/cm]
+	Dpath3	= 0.0000e+00	# [eV]
+	Ppath3	= 0.0000e+00	# [eV]
+	Rpath3	= 0.0000e+00	# [1]
+	MaxTunnelLength	= 1.0000e-05	# [cm]
+
+  * min length to interfaces (for traditional & Hurkx models):
+	dDist	= 0.0000e+00	# [cm]
+  * min potential difference on length dPot/E (for traditional & Hurkx models):
+	dPot	= 0.0000e+00	# [V]
+  * numeric smoothing
+	MinField	= 0.0000e+00	# [V/cm]
+	MinGradQF	= 0.0000e+00	# [eV/cm]
+	DenCorRef	= 0.0000e+00 ,	0.0000e+00	# [cm^-3]
+}
+
+}

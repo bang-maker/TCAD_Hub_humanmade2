@@ -1,0 +1,73 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Sun Mar 13 10:37:48 2022
+
+# --- simulation flow
+etch sprocess "" {}
+etch etch "1" {1}
+etch case "1" {1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19}
+DrawStructure svisual "" {}
+DrawCoeffs svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default etch ""
+scenario default case ""
+# --- simulation tree
+0 1 0 {} {default} 0
+1 2 1 {1} {default} 0
+2 3 2 {1} {default} 0
+3 22 3 {} {default} 0
+4 41 22 {} {default} 0
+2 4 2 {2} {default} 0
+3 23 4 {} {default} 0
+4 42 23 {} {default} 0
+2 5 2 {3} {default} 0
+3 24 5 {} {default} 0
+4 43 24 {} {default} 0
+2 6 2 {4} {default} 0
+3 25 6 {} {default} 0
+4 44 25 {} {default} 0
+2 7 2 {5} {default} 0
+3 26 7 {} {default} 0
+4 45 26 {} {default} 0
+2 8 2 {6} {default} 0
+3 27 8 {} {default} 0
+4 46 27 {} {default} 0
+2 9 2 {7} {default} 0
+3 28 9 {} {default} 0
+4 47 28 {} {default} 0
+2 10 2 {8} {default} 0
+3 29 10 {} {default} 0
+4 48 29 {} {default} 0
+2 11 2 {9} {default} 0
+3 30 11 {} {default} 0
+4 49 30 {} {default} 0
+2 12 2 {10} {default} 0
+3 31 12 {} {default} 0
+4 50 31 {} {default} 0
+2 13 2 {11} {default} 0
+3 32 13 {} {default} 0
+4 51 32 {} {default} 0
+2 14 2 {12} {default} 0
+3 33 14 {} {default} 0
+4 52 33 {} {default} 0
+2 15 2 {13} {default} 0
+3 34 15 {} {default} 0
+4 53 34 {} {default} 0
+2 16 2 {14} {default} 0
+3 35 16 {} {default} 0
+4 54 35 {} {default} 0
+2 17 2 {15} {default} 0
+3 36 17 {} {default} 0
+4 55 36 {} {default} 0
+2 18 2 {16} {default} 0
+3 37 18 {} {default} 0
+4 56 37 {} {default} 0
+2 19 2 {17} {default} 0
+3 38 19 {} {default} 0
+4 57 38 {} {default} 0
+2 20 2 {18} {default} 0
+3 39 20 {} {default} 0
+4 58 39 {} {default} 0
+2 21 2 {19} {default} 0
+3 40 21 {} {default} 0
+4 59 40 {} {default} 0

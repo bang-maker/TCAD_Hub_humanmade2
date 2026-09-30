@@ -1,0 +1,24 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Tue Mar 29 10:00:56 2022
+
+# --- simulation flow
+Implant sprocess "" {}
+Implant species "Arsenic" {Arsenic Boron}
+Implant energy "10" {10 30 150 200}
+DrawDamage svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default species ""
+scenario default energy ""
+# --- simulation tree
+0 152 0 {} {default} 0
+1 155 152 {Arsenic} {default} 0
+2 161 155 {150} {default} 0
+3 162 161 {} {default} 0
+2 165 155 {200} {default} 0
+3 166 165 {} {default} 0
+1 156 152 {Boron} {default} 0
+2 153 156 {10} {default} 0
+3 154 153 {} {default} 0
+2 159 156 {30} {default} 0
+3 160 159 {} {default} 0

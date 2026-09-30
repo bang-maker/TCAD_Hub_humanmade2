@@ -1,0 +1,45 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Sun Nov 14 05:34:36 2021
+
+# --- simulation flow
+PNdiode sde "" {}
+PNdiode Ndop "1e15" {1e15}
+IV sdevice "" {}
+IV eXsection "1e-12" {1e-12 1e-11 1e-10 1e-9 1e-8}
+IV hXsection "1e-12" {1e-12 1e-11 1e-10 1e-9 1e-8}
+DrawIV svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default Ndop ""
+scenario default eXsection ""
+scenario default hXsection ""
+scenario eXsection Ndop ""
+scenario eXsection eXsection ""
+scenario eXsection hXsection ""
+# --- simulation tree
+0 43 0 {} {eXsection default} 0
+1 17 43 {1e15} {eXsection default} 0
+2 69 17 {} {eXsection default} 0
+3 62 69 {1e-12} {eXsection default} 0
+4 38 62 {1e-12} {eXsection default} 0
+5 3 38 {} {eXsection default} 0
+4 70 62 {1e-11} {default} 0
+5 71 70 {} {default} 0
+4 63 62 {1e-10} {default} 0
+5 64 63 {} {default} 0
+4 72 62 {1e-9} {default} 0
+5 73 72 {} {default} 0
+4 65 62 {1e-8} {default} 0
+5 66 65 {} {default} 0
+3 74 69 {1e-11} {eXsection} 0
+4 75 74 {1e-12} {eXsection} 0
+5 76 75 {} {eXsection} 0
+3 77 69 {1e-10} {eXsection} 0
+4 78 77 {1e-12} {eXsection} 0
+5 79 78 {} {eXsection} 0
+3 80 69 {1e-9} {eXsection} 0
+4 81 80 {1e-12} {eXsection} 0
+5 82 81 {} {eXsection} 0
+3 83 69 {1e-8} {eXsection} 0
+4 84 83 {1e-12} {eXsection} 0
+5 85 84 {} {eXsection} 0

@@ -1,0 +1,43 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Wed Sep 29 11:45:11 2021
+
+# --- simulation flow
+EmitterImp sprocess "" {}
+EmitterImp imp_energy "30" {30 50}
+BaseImp sprocess "" {}
+IGBT sde "-defaultGUI" {}
+mirror_previous_dev cshell "" {}
+IGBT_extend sde "" {}
+mirror_previous_dev1 cshell "" {}
+IGBT_array sde "" {}
+IGBT_mirror_homework sde "" {}
+IGBT_sweep sde "" {}
+IGBT_sweep_angle sde "" {}
+boxmethod cshell "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default imp_energy ""
+# --- simulation tree
+0 1 0 {} {default} 0
+1 2 1 {30} {default} 0
+2 4 2 {} {default} 0
+3 6 4 {} {default} 0
+4 14 6 {} {default} 0
+5 8 14 {} {default} 0
+6 16 8 {} {default} 0
+7 10 16 {} {default} 0
+8 12 10 {} {default} 0
+9 18 12 {} {default} 0
+10 20 18 {} {default} 0
+11 22 20 {} {default} 0
+1 3 1 {50} {default} 0
+2 5 3 {} {default} 0
+3 7 5 {} {default} 0
+4 15 7 {} {default} 0
+5 9 15 {} {default} 0
+6 17 9 {} {default} 0
+7 11 17 {} {default} 0
+8 13 11 {} {default} 0
+9 19 13 {} {default} 0
+10 21 19 {} {default} 0
+11 23 21 {} {default} 0

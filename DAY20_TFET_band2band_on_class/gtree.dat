@@ -1,0 +1,21 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Wed Dec  8 08:18:28 2021
+
+# --- simulation flow
+TFET sde "" {}
+IdVg sdevice "" {}
+IdVg Vdd "1.0" {1.0}
+IdVg WF "4.3" {4.3}
+DrawIdVg svisual "" {}
+TFET_sweep_angle sde "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default Vdd ""
+scenario default WF ""
+# --- simulation tree
+0 2 0 {} {default} 0
+1 5 2 {} {default} 0
+2 4 5 {1.0} {default} 0
+3 3 4 {4.3} {default} 0
+4 7 3 {} {default} 0
+5 8 7 {} {default} 0

@@ -1,0 +1,135 @@
+ 
+   set half_cell 0.4   
+    
+   set EQNS1  "Poisson Electron Hole"
+   set EQNS2  "Poisson Electron Hole Temperature"
+   set PULSE  "0 0 1.0e-8 5 [expr 70e-6+1.0e-8] 5 [expr 70e-6+2.0e-8] 0 1 0"
+   set RESIST "[expr 2.1*1e-3*35087719.2982456]"
+   set TEMPF  "[expr 25+275]"
+
+puts $RESIST
+puts $TEMPF
+puts $TEMPF
+puts $TEMPF
+puts $TEMPF
+puts $PULSE
+puts $EQNS1
+puts $EQNS1
+puts $EQNS2
+puts $EQNS2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

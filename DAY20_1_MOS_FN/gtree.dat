@@ -1,0 +1,18 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Sun Dec  5 07:39:47 2021
+
+# --- simulation flow
+MOS sde "" {}
+write_erase sdevice "" {}
+write_erase Fowler "no" {no yes}
+Draw svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default Fowler ""
+# --- simulation tree
+0 1 0 {} {default} 0
+1 3 1 {} {default} 0
+2 2 3 {no} {default} 0
+3 5 2 {} {default} 0
+2 4 3 {yes} {default} 0
+3 6 4 {} {default} 0

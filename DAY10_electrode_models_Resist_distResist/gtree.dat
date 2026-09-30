@@ -1,0 +1,48 @@
+# Copyright (C) 1994-2017 Synopsys Inc.
+# swbtree vcurrent, Sun Oct 24 09:21:48 2021
+
+# --- simulation flow
+electrode sde "" {}
+IV sdevice "" {}
+IV BC "Ohmic" {Ohmic}
+IV Resist "1" {1e5 2e5 3e5 4e5 -}
+IV DistResist "1" {- 1e5 2e5 3e5 4e5 5e5}
+DrawIV svisual "" {}
+# --- variables
+# --- scenarios and parameter specs
+scenario default BC ""
+scenario default Resist ""
+scenario default DistResist ""
+scenario DistResist BC ""
+scenario DistResist Resist ""
+scenario DistResist DistResist ""
+scenario Resist BC ""
+scenario Resist Resist ""
+scenario Resist DistResist ""
+# --- simulation tree
+0 1 0 {} {default Resist DistResist} 0
+1 3 1 {} {default Resist DistResist} 0
+2 70 3 {Ohmic} {default Resist DistResist} 0
+3 79 70 {1e5} {default Resist} 0
+4 104 79 {-} {default Resist} 0
+5 105 104 {} {default Resist} 0
+3 80 70 {2e5} {default Resist} 0
+4 106 80 {-} {default Resist} 0
+5 107 106 {} {default Resist} 0
+3 81 70 {3e5} {default Resist} 0
+4 108 81 {-} {default Resist} 0
+5 109 108 {} {default Resist} 0
+3 82 70 {4e5} {default Resist} 0
+4 110 82 {-} {default Resist} 0
+5 111 110 {} {default Resist} 0
+3 83 70 {-} {DistResist} 0
+4 114 83 {1e5} {DistResist} 0
+5 115 114 {} {DistResist} 0
+4 116 83 {2e5} {DistResist} 0
+5 117 116 {} {DistResist} 0
+4 118 83 {3e5} {DistResist} 0
+5 119 118 {} {DistResist} 0
+4 120 83 {4e5} {DistResist} 0
+5 121 120 {} {DistResist} 0
+4 122 83 {5e5} {DistResist} 0
+5 123 122 {} {DistResist} 0

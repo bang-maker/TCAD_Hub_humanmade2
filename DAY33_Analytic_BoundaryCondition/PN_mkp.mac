@@ -1,0 +1,16 @@
+# Sentaurus markups information - Sat May 22 22:56:37 2021
+# Version - O-2018.06-SP2 (697150)
+default winding 1
+layout open /home/liulb/STDB/PN_DIODE_SPROCESS/PN1_sprocess/NwellPsub.gds Cell0
+cell transform 1 0 0 0 0
+layer configure 1:0 -name OD -fill #9900ff00 -pattern solid -outline #9900ff00 -lineStyle solid -lineWidth 1 -reverse_tone 0 
+layer configure 2:0 -name NWELL -fill #990000ff -pattern solid -outline #990000ff -lineStyle solid -lineWidth 1 -reverse_tone 0 
+layer configure 3:0 -name NIMP -fill #99ffff00 -pattern solid -outline #99ffff00 -lineStyle solid -lineWidth 1 -reverse_tone 0 
+layer configure 4:0 -name PIMP -fill #99ff00ff -pattern solid -outline #99ff00ff -lineStyle solid -lineWidth 1 -reverse_tone 0 
+layer configure 5:0 -name VIA -fill #9900ffff -pattern solid -outline #9900ffff -lineStyle solid -lineWidth 1 -reverse_tone 0 
+layer configure 6:0 -name METAL1 -fill #99ff6699 -pattern solid -outline #99ff6699 -lineStyle solid -lineWidth 1 -reverse_tone 0 
+gauge add {-3410 539 6201 539} PN2D
+highlight add {-3139 -3121 5931 3129} PN3D
+highlight add {1839 49 4496 2421} PN3D2
+select clear
+catch {view default}

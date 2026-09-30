@@ -1,0 +1,5 @@
+#define ParFileDir .
+
+Material="OxideAsSemiconductor" {
+  #includeext "ParFileDir/OxideAsSemiconductor.par"
+}

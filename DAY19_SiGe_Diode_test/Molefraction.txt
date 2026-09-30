@@ -1,0 +1,3 @@
+# Ge(x)Si(1-x)
+SiGe_my (x=0) = Si_my
+SiGe_my (x=1) = Ge_my
